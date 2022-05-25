@@ -42,7 +42,10 @@ export const Login = () => {
       });
   };
   return (
-    <div className="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div
+      className="vh-100 d-flex flex-column justify-content-center align-items-center bg-image "
+      style={{ backgroundImage: 'url(/bg-img.png)', backgroundRepeat: 'no-repeat' }}
+    >
       <div className="col-md-4 px-0">
         <img
           src="https://career-hcmuni.fpt.edu.vn/images/logo-fpt-login.png"
@@ -51,20 +54,21 @@ export const Login = () => {
         />
       </div>
 
-      <div className="bg-white text-center mb-4">
+      <div className="bg-white text-center mb-5">
         <p className="word-break">
           Let's build an outstanding profile and get the opportunity of business
           ideals
         </p>
       </div>
-      <div className="d-flex w-100 justify-content-center">
-        <div className="w-25">
+      <div className="d-flex w-100 justify-content-center my-5">
+        <form className="w-25" onSubmit={onSubmitHandler}>
           <Input
             placeholder="Enter your email"
             ariaLabel="Email"
             symbol={<i class="fa fa-user"></i>}
             onChangeHandler={onChangeEmail}
             value={email}
+            
           />
           <Input
             placeholder="Enter your password"
@@ -79,10 +83,10 @@ export const Login = () => {
             fullWidth
             label="Sign in"
             className="text-center"
-            onClick={onSubmitHandler}
+            type="submit"
           />
           <Button
-            className="shadow bg-white rounded d-flex"
+            className="shadow bg-white rounded d-flex mt-4"
             fullWidth
             onClick={onSubmitOAuth2}
           >
@@ -93,7 +97,7 @@ export const Login = () => {
             />{" "}
             <p className="mx-auto my-auto">Login with Google</p>
           </Button>
-        </div>
+        </form>
       </div>
       <div className="mt-5">
         <p className="text-black opacity-25 text-center">
