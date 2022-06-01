@@ -3,11 +3,12 @@ import Button from "../../components/Button";
 import { Input } from "../../components/Input";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 export const Login = () => {
   const provider = new GoogleAuthProvider();
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   auth.languageCode = "it";
-
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onChangeEmail = (data) => {
@@ -20,6 +21,9 @@ export const Login = () => {
     e.preventDefault();
     console.log(email, password);
   };
+  const onLogin = () => {
+    navigate("/")
+  }
   const onSubmitOAuth2 = (e) => {
     signInWithRedirect(auth, provider)
       .then((result) => {
@@ -84,6 +88,7 @@ export const Login = () => {
             label="Sign in"
             className="text-center"
             type="submit"
+            onClick={onLogin}
           />
           <Button
             className="shadow bg-white rounded d-flex mt-4"
@@ -92,10 +97,10 @@ export const Login = () => {
           >
             <img
               className="ratio-4x3"
-              src="https://img.icons8.com/color/48/000000/google-logo.png"
+              src="https://img.icons8.com/color/32/000000/google-logo.png"
               alt="google"
             />{" "}
-            <p className="mx-auto my-auto">Login with Google</p>
+            <p className="mx-auto my-auto text-black font-weight-bold">Login with Google</p>
           </Button>
         </form>
       </div>

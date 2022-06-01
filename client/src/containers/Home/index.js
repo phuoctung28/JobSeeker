@@ -1,5 +1,6 @@
 import React from "react";
 import { Input } from "../../components/Input";
+import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 import "./index.css";
 export const Homepage = () => {
@@ -45,6 +46,7 @@ export const Homepage = () => {
         <h4>Categories</h4>
       </div>
       </div>
+      <Footer />
     </div>
   );
 };
