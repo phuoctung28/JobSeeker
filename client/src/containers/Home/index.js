@@ -40,9 +40,9 @@ export const Homepage = () => {
       </div>
 
       </div>
-      <div className="content">
-      <div>
-        <div>Categories</div>
+      <div className="content my-5">
+      <div className="container">
+        <h4>Categories</h4>
       </div>
       </div>
     </div>
