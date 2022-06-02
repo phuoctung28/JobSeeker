@@ -1,0 +1,31 @@
+.category {
+  background-color: #F2F3F6;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  border-radius: 8px;
+  -webkit-transition: background-color 2ms linear;
+  -moz-transition: background-color 2ms linear;
+  -o-transition: background-color 2ms linear;
+  transition: background-color 2ms linear;
+  cursor: pointer;
+}
+.first{
+  display: none;
+}
+.category:hover {
+  background-color: #F36522;
+  box-shadow: 5px 10px #000000 22%;
+  color: white;
+}
+
+.category:hover .first {
+  display: block;  
+}
+.category:hover .second {
+  display: none;  
+}

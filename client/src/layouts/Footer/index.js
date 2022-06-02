@@ -11,9 +11,9 @@ export const Footer = () => {
         <div className="d-flex justify-content-between">
           <div>Copyright ©2022 Produced by FPT Technology Department</div>
           <div className="d-flex">
-            <p className=" space-x-2">Privacy policy</p>
-            <p className=" space-x-2">Terms of Service </p>
-            <p className=" space-x-2">Security & Privacy</p>
+            <p className="space-x-2">Privacy policy</p>
+            <p className="space-x-2">Terms of Service </p>
+            <p className="space-x-2">Security & Privacy</p>
           </div>
         </div>
       </div>
