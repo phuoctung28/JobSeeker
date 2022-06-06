@@ -1,0 +1,17 @@
+.text {
+  color: #f36522;
+}
+.header {
+  background-color: #F2F3F6;
+}
+.button {
+  background-color: #f36522;
+  color: white;
+  font-size: bold;
+}
+.example {
+  color: #bababa;
+}
+.btn {
+  color: #bababa!important;
+}
