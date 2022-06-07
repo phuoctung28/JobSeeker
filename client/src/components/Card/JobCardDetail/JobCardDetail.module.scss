@@ -1,0 +1,57 @@
+$primary-color: #f36522;
+$title-color: #bababa;
+.card {
+  border: 1px solid $title-color;
+  border-radius: 4px;
+  width: 400px;
+  height: 624px;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1.5rem;
+  h4 {
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: $primary-color;
+  }
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+  .tag {
+    margin: 3rem 0;
+    width: 70%;
+    p {
+      color: $title-color;
+      font-weight: bold;
+      font-size: large;
+    }
+    div {
+      display: flex; 
+      flex-wrap: wrap;
+      font-size: 8px;
+    }
+  }
+}
+.cardDetail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  p {
+    color: $title-color;
+    font-weight: bold;
+    font-size: large;
+  }
+}
+.tags {
+  height: 25px;
+  border: 2px solid $title-color;
+  border-radius: 4px;
+  width: fit-content;
+  padding: 0 1.5rem;
+  color: $title-color;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}

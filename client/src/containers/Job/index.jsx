@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
 import { Footer } from "../../layouts/Footer";
@@ -6,11 +6,11 @@ import { Header } from "../../layouts/Header";
 import "./index.css";
 export const JobPage = () => {
   return (
-    <div className="vh-100">
+    <Fragment>
       <div className="header py-5">
         <div className="container">
           <Header id="homepage" />
-          <div className="d-flex ml-5 flex-row justify-content-between mt-5 ">
+          <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
             <div className="mr-5">
               <h1 className="d-inline">
                 Discover The <p className="text"> OJT Jobs</p>
@@ -36,6 +36,6 @@ export const JobPage = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </Fragment>
   );
 };

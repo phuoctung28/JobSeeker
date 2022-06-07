@@ -1,0 +1,33 @@
+$primary-color: #bababa;
+.card {
+  border: 1px solid $primary-color;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  .information {
+    margin-left: 12rem;
+    color: $primary-color;
+    h4 {
+      font-weight: bold;
+      color: black !important;
+    }
+    .type {
+      display: flex;
+      align-items: center;
+      div {
+        border: 1px solid $primary-color;
+        padding: 0.5rem 2rem;
+        margin-left: 1rem;
+        border-radius: 4px;
+      }
+    }
+  }
+  .apply {
+    button {
+      padding: 1rem 4rem;
+      border-radius: 4px;
+    }
+  }
+}
