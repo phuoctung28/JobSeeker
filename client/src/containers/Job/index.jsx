@@ -27,12 +27,10 @@ export const JobPage = () => {
           <button className="px-2 button">Search</button>
         </Input>
       </div>
-      <div className="content my-5">
-        <div className="container">
-          <div>
-            <h4 className="my-4">Categories</h4>
-            <CategoryList />
-          </div>
+      <div className="container my-5">
+        <div>
+          <h4 className="my-4">Categories</h4>
+          <CategoryList />
         </div>
       </div>
       <Footer />

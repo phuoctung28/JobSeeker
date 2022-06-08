@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
+import { CompanyCard } from "../../components/Card/Company";
 import { Input } from "../../components/Input";
+import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 
 export const CompanyPage = () => {
@@ -25,6 +27,11 @@ export const CompanyPage = () => {
           <button className="px-2 button">Search</button>
         </Input>
       </div>
+      <div className="container my-5">
+        <h4>Companies List</h4>
+        <CompanyCard />
+      </div>
+      <Footer />
     </Fragment>
   );
 };

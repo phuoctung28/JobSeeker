@@ -2,10 +2,11 @@ $primary-color: #bababa;
 .card {
   border: 1px solid $primary-color;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 2.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 19%) !important;
   .information {
     margin-left: 12rem;
     color: $primary-color;
