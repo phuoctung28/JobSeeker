@@ -61,7 +61,6 @@ ul {
 /* Header  */
 header {
   padding: 12px 32px;
-  background-color: var(--primary-color);
 }
 
 header .nav-brand {

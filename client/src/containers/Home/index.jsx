@@ -1,10 +1,16 @@
-import React, { Fragment } from "react";
+import { getAuth } from "firebase/auth";
+import React, { Fragment, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
+import { auth } from "../../firebase";
 import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 import "./index.css";
 export const Homepage = () => {
+  console.log(auth.currentUser.displayName);
+  // useEffect(() => {
+
+  // }, []);
   return (
     <Fragment>
       <div className="header py-5">

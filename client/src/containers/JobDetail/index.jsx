@@ -5,6 +5,7 @@ import { Input } from "../../components/Input";
 import { Header } from "../../layouts/Header";
 import "./index.scss";
 import { Footer } from "../../layouts/Footer";
+import Button from "../../components/Button";
 
 export const JobDetail = () => {
   return (
@@ -57,6 +58,27 @@ export const JobDetail = () => {
             consectetur consectetur porta nulla volutpat vitae adipiscing.
             Eleifend donec volutpat pretium faucibus.
           </p>
+          <h4>
+            Responsibilities
+          </h4>
+          <p>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          </p>
+          <h4>
+          What we  would like to see  in our idea candidate
+          </h4>
+          <p>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+          </p>
+          <Button fullWidth className="rounded-2">Apply Job</Button>
         </div>
         <JobCardDetail />
       </div>

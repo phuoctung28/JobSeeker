@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
 import { Input } from "../../components/Input";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
@@ -9,41 +9,31 @@ export const Login = () => {
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   auth.languageCode = "it";
   let navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const onChangeEmail = (data) => {
-    setEmail(data);
-  };
-  const onChangePassword = (data) => {
-    setPassword(data);
-  };
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
-  const onLogin = () => {
-    navigate("/")
-  }
   const onSubmitOAuth2 = (e) => {
-    signInWithRedirect(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      localStorage.setItem("user", user.uid)
+      console.log(user);
+      // ...
+    })
+    .then((data) => {
+      console.log(data);
+      navigate("/")
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
   };
   return (
     <div
@@ -65,31 +55,7 @@ export const Login = () => {
         </p>
       </div>
       <div className="d-flex w-100 justify-content-center my-5">
-        <form className="w-25" onSubmit={onSubmitHandler}>
-          <Input
-            placeholder="Enter your email"
-            ariaLabel="Email"
-            symbol={<i class="fa fa-user"></i>}
-            onChangeHandler={onChangeEmail}
-            value={email}
-            
-          />
-          <Input
-            placeholder="Enter your password"
-            ariaLabel="Password"
-            symbol={<i class="fa fa-lock"></i>}
-            onChangeHandler={onChangePassword}
-            value={password}
-            type="password"
-          />
-          <Button
-            buttonType="primary"
-            fullWidth
-            label="Sign in"
-            className="text-center"
-            type="submit"
-            onClick={onLogin}
-          />
+        <form className="w-25">
           <Button
             className="shadow bg-white rounded d-flex mt-4"
             fullWidth

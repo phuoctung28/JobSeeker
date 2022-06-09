@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import "./index.module.css"
+import "./index.module.css";
 export const Header = () => {
   return (
+    <header>
       <Navbar expand="lg" className="header">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             {" "}
             <img
               src="/logo-fpt-login.png"
@@ -19,14 +20,15 @@ export const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto justify-content-center">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="job">Jobs</Nav.Link>
-              <Nav.Link href="company">Company</Nav.Link>
+              <Nav.Link href="/job">Jobs</Nav.Link>
+              <Nav.Link href="/company">Company</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <Navbar.Brand >
+          <Navbar.Brand>
             <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" />
           </Navbar.Brand>
         </Container>
       </Navbar>
+    </header>
   );
 };

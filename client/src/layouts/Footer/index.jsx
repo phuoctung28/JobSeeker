@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css"
 export const Footer = () => {
   return (
-    <div className="bg-black py-5 text-footer">
+    <footer className="bg-black py-5 text-footer w-100">
       <div className="container">
         <div>
           <img src="/logo-fpt-login.png" width={339} height={75} alt="" />
@@ -17,6 +17,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
