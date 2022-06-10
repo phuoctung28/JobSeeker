@@ -7,7 +7,7 @@ import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 import "./index.css";
 export const Homepage = () => {
-  console.log(auth.currentUser.displayName);
+  // console.log(auth.currentUser.displayName);
   // useEffect(() => {
 
   // }, []);
