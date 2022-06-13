@@ -24,7 +24,7 @@ export const Login = () => {
     })
     .then((data) => {
       console.log(data);
-      navigate("/")
+      navigate("/home")
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
