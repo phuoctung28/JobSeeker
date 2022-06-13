@@ -1,0 +1,16 @@
+.footer {
+  background-color: black;
+  padding: 3rem 0;
+  color: #bababa;
+  width: 100%;
+  .information {
+    display: flex;
+    justify-content: space-between;
+    div:last-child {
+      display: flex;
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

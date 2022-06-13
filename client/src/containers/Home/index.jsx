@@ -5,7 +5,7 @@ import { Feature } from "../../components/Card/Feature";
 import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 import { useNavigate } from "react-router-dom";
-import "./index.css";
+import classes from "./Home.module.scss";
 import Button from "../../components/Button";
 export const Homepage = () => {
   const navigate = useNavigate()
@@ -15,10 +15,10 @@ export const Homepage = () => {
   }
   return (
     <Fragment>
-      <div className="header py-5">
+      <div className={classes.header}>
         <div className="container">
           <Header id="homepage" />
-          <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
+          <div className={classes.panel}>
             <div className="mr-5">
               <h1>
                 Discover Your<br></br>
@@ -55,7 +55,7 @@ export const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="content my-5">
+      <div className="my-5">
         <div className="container">
           <div>
             <h4 className="my-4">Categories</h4>

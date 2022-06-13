@@ -3,6 +3,12 @@
 }
 .header {
   background-color: #F2F3F6;
+  padding: 3rem 0;
+}
+.panel {
+  display: flex;
+  margin: 3rem 0 3rem 3rem;
+  justify-content: space-between;
 }
 .button {
   background-color: #f36522;
