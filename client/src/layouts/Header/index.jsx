@@ -6,7 +6,7 @@ export const Header = () => {
     <header>
       <Navbar expand="lg" className="header">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/home">
             {" "}
             <img
               src="/logo-fpt-login.png"
