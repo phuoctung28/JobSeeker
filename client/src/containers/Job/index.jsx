@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
+import { Feature } from "../../components/Card/Feature";
 import { Input } from "../../components/Input";
 import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
@@ -31,6 +32,18 @@ export const JobPage = () => {
         <div>
           <h4 className="my-4">Categories</h4>
           <CategoryList />
+        </div>
+        <div>
+          <h4 className="my-4">Related Job Postings</h4>
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
         </div>
       </div>
       <Footer />

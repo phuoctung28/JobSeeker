@@ -1,17 +1,18 @@
-import { getAuth } from "firebase/auth";
 import React, { Fragment, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
-import {Feature} from "../../components/Card/Feature"
+import { Feature } from "../../components/Card/Feature";
 import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 import Button from "../../components/Button";
 export const Homepage = () => {
-  // console.log(auth.currentUser.displayName);
-  // useEffect(() => {
-
-  // }, []);
+  const navigate = useNavigate()
+  async function handleSubmit(event) {
+    event.preventDefault();
+    navigate("/job", { replace: true });
+  }
   return (
     <Fragment>
       <div className="header py-5">
@@ -61,7 +62,7 @@ export const Homepage = () => {
             <CategoryList />
           </div>
           <div>
-          <h4 className="my-4">Featured Jobs</h4>
+            <h4 className="my-4">Featured Jobs</h4>
             <Feature />
             <Feature />
             <Feature />
@@ -74,10 +75,10 @@ export const Homepage = () => {
             <Feature />
             <Feature />
           </div>
-          <Button className="mx-auto">More jobs</Button>
         </div>
       </div>
+      <Button className="button-job" onClick={handleSubmit}>More jobs</Button>
       <Footer />
-      </Fragment>
+    </Fragment>
   );
 };
