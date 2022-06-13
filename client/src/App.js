@@ -11,8 +11,8 @@ function App() {
     <div className="vh-100">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Homepage />} />
           <Route path="/job" element={<JobPage />} />
           <Route path="/job/jobDetail" element={<JobDetail />} />
           <Route path="/company" element={<CompanyPage />} />
