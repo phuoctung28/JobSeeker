@@ -2,10 +2,11 @@ import { getAuth } from "firebase/auth";
 import React, { Fragment, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
-import { auth } from "../../firebase";
+import {Feature} from "../../components/Card/Feature"
 import { Footer } from "../../layouts/Footer";
 import { Header } from "../../layouts/Header";
 import "./index.css";
+import Button from "../../components/Button";
 export const Homepage = () => {
   // console.log(auth.currentUser.displayName);
   // useEffect(() => {
@@ -61,8 +62,19 @@ export const Homepage = () => {
           </div>
           <div>
           <h4 className="my-4">Featured Jobs</h4>
-            <CategoryList />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
+            <Feature />
           </div>
+          <Button className="mx-auto">More jobs</Button>
         </div>
       </div>
       <Footer />

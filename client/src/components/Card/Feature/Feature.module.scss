@@ -1,0 +1,43 @@
+$primary-color: #f36522;
+$title-color: #bababa;
+.card {
+  border: 1px solid $title-color;
+  padding: 4rem 4rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  .information {
+
+  }
+  .time {
+    background-color: $primary-color;
+    border-radius: 4px;
+    padding: 0.5rem 2rem;
+    color: white;
+  }
+  .tags {
+    display: flex;
+    justify-content: space-between;
+  }
+  .starting__time {
+    color: $title-color;
+    font-size: larger;
+  }
+}
+.tag {
+  height: 25px;
+  border: 2px solid $title-color;
+  border-radius: 4px;
+  width: fit-content;
+  padding: 0 2rem;
+  background-color: $title-color;
+  color: white;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 8px;
+  cursor: pointer;
+}
