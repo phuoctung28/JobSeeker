@@ -25,7 +25,10 @@ export const Header = () => {
             </Nav>
           </Navbar.Collapse>
           <Navbar.Brand>
-            <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" />
+            <a href="/profile">
+              <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" />
+            </a>
+            {/* <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" /> */}
           </Navbar.Brand>
         </Container>
       </Navbar>
