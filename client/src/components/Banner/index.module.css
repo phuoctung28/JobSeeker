@@ -1,0 +1,115 @@
+/*  */
+
+.mainContainer {
+  margin: 0 auto;
+  background-color: #e2e6f1;
+  padding: 25px;
+  width: 1228px;
+  height: 183px;
+  box-sizing: border-box;
+  /* display: flex;
+    justify-content: space-between; */
+  /* width: 100%; */
+}
+
+.content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editBtn {
+  padding: 6px;
+  width: 14px;
+  height: 16px;
+}
+
+.ava {
+  width: 130px;
+  height: 130px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.imgContainer {
+  margin: 0 13px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
+.location {
+  color: #464048;
+  font-size: 12px;
+  height: 25px;
+  max-width: fit-content;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.personalInfo {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.linkMail {
+  text-decoration: none;
+  color: black;
+}
+
+.mail {
+  margin-bottom: 5px;
+}
+.linkMail:hover {
+  text-decoration: underline;
+}
+
+.Share_Export_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shareBtn {
+  padding: 8px 22px;
+  color: #f36522;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  display: inline-block;
+  background-color: white;
+}
+
+.exportBtn {
+  margin-left: 15px;
+  padding: 8px 22px;
+  color: #f36522;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  display: inline-block;
+  background-color: white;
+}
