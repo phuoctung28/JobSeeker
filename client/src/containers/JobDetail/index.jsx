@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { JobCard } from "../../components/Card/JobCard";
 import { JobCardDetail } from "../../components/Card/JobCardDetail";
 import { Input } from "../../components/Input";
@@ -8,6 +8,12 @@ import { Footer } from "../../layouts/Footer";
 import Button from "../../components/Button";
 
 export const JobDetail = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <div>
       <div className="header py-5">
@@ -58,27 +64,35 @@ export const JobDetail = () => {
             consectetur consectetur porta nulla volutpat vitae adipiscing.
             Eleifend donec volutpat pretium faucibus.
           </p>
-          <h4>
-            Responsibilities
-          </h4>
+          <h4>Responsibilities</h4>
           <p>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
           </p>
-          <h4>
-          What we  would like to see  in our idea candidate
-          </h4>
+          <h4>What we would like to see in our idea candidate</h4>
           <p>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
-          - Incident management: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, in at semper ut adipiscing. <br/>
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
+            - Incident management: Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Neque, in at semper ut adipiscing. <br />
           </p>
-          <Button fullWidth className="rounded-2">Apply Job</Button>
+          <Button fullWidth className="rounded-2">
+            Apply Job
+          </Button>
         </div>
         <JobCardDetail />
       </div>

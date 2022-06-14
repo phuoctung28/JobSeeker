@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import classes from "./Feature.module.scss";
 export const Feature = () => {
+  let navigate = useNavigate();
   const Tag = ({ tag }) => {
     return <div className={classes.tag}>{tag}</div>;
   };
+  const onRedirectToDetail = (e) => {
+    e.preventDefault()
+    navigate("/job/jobDetail")
+  }
   return (
-    <div className={classes.card}>
+    <div className={classes.card} onClick={onRedirectToDetail}>
       <div>
         <img src="https://img.icons8.com/color/48/undefined/google-logo.png" />
       </div>

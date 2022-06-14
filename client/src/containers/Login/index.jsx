@@ -1,45 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
-import { Input } from "../../components/Input";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { deleteUser, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import checkFPTEmail from "../../utils/checkFPTEmail";
 export const Login = () => {
   const provider = new GoogleAuthProvider();
+  const [error, setError] = useState("");
+  const [validation, setValidation] = useState(true);
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   auth.languageCode = "it";
   let navigate = useNavigate();
   const onSubmitOAuth2 = (e) => {
     e.preventDefault();
     signInWithPopup(auth, provider)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      localStorage.setItem("user", user.uid)
-      console.log(user);
-      // ...
-    })
-    .then((data) => {
-      console.log(data);
-      navigate("/home")
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        if (!checkFPTEmail(user.email)) {
+          console.log("Fail");
+          setValidation(false);
+          navigate("/");
+          deleteUser(user)
+            .then(() => {
+              // User deleted.
+            })
+            .catch((error) => {
+              // An error ocurred
+              // ...
+            });
+          throw new Error("Failllll");
+        }
+        return user;
+      })
+      .then((data) => {
+        console.log(data);
+        navigate("/home");
+      })
+      .catch((err) => {
+        // Handle Errors here.
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        // The email of the user's account used.
+        const email = err.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(err);
+        // ...
+      });
   };
+  useEffect(() => {
+    if (validation === false) {
+      setError("Your email has not permission to login");
+    } else setError("");
+  }, [error, validation]);
   return (
     <div
       className="vh-100 d-flex flex-column justify-content-center align-items-center bg-image "
-      style={{ backgroundImage: 'url(/bg-img.png)', backgroundRepeat: 'no-repeat' }}
+      style={{
+        backgroundImage: "url(/bg-img.png)",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="col-md-4 px-0">
         <img
@@ -55,6 +78,7 @@ export const Login = () => {
           ideals
         </p>
       </div>
+      <p className="text-danger">{error}</p>
       <div className="d-flex w-100 justify-content-center my-5">
         <form className="w-25">
           <Button
@@ -67,7 +91,9 @@ export const Login = () => {
               src="https://img.icons8.com/color/32/000000/google-logo.png"
               alt="google"
             />{" "}
-            <p className="mx-auto my-auto text-black font-weight-bold">Login with Google</p>
+            <p className="mx-auto my-auto text-black font-weight-bold">
+              Login with Google
+            </p>
           </Button>
         </form>
       </div>

@@ -6,6 +6,7 @@ import { Login } from "./containers/Login";
 import { JobPage } from "./containers/Job";
 import { CompanyPage } from "./containers/Company";
 import { JobDetail } from "./containers/JobDetail";
+import { useEffect } from "react";
 function App() {
   return (
     <div className="vh-100">
