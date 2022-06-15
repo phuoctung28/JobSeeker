@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { JobCard } from "../../components/Card/JobCard";
 import { JobCardDetail } from "../../components/Card/JobCardDetail";
 import { Input } from "../../components/Input";
-import { Header } from "../../layouts/Header";
-import "./index.scss";
-import { Footer } from "../../layouts/Footer";
+import classes from "./JobDetail.module.scss";
 import Button from "../../components/Button";
-
 export const JobDetail = () => {
   useEffect(() => {
     window.scrollTo({
@@ -15,17 +12,14 @@ export const JobDetail = () => {
     });
   }, []);
   return (
-    <div>
-      <div className="header py-5">
+    <Fragment>
+      <div className={classes.job}>
         <div className="container">
-          <Header id="homepage" />
-          <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
-            <div className="mr-5">
-              <h1 className="d-inline">
-                Discover The <p className="text"> OJT Jobs</p>
+            <div className={classes.slogan}>
+              <h1>
+                Discover The <p> OJT Jobs</p>
               </h1>
             </div>
-          </div>
         </div>
         <Input
           symbol={<i class="fa fa-search"></i>}
@@ -40,9 +34,10 @@ export const JobDetail = () => {
         <h4>Job Details</h4>
         <JobCard />
       </div>
-      <div className="container my-5 company">
-        <div className="information">
-          <h4 className="">Company overview</h4>
+      <div className="container">
+      <div className={classes.company}>
+        <div className={classes.information}>
+          <h4>Company overview</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst
             diam malesuada nisl eget commodo sed. Eu, varius vestibulum dui elit
@@ -90,13 +85,11 @@ export const JobDetail = () => {
             - Incident management: Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Neque, in at semper ut adipiscing. <br />
           </p>
-          <Button fullWidth className="rounded-2">
-            Apply Job
-          </Button>
         </div>
         <JobCardDetail />
       </div>
-      <Footer />
-    </div>
+      </div>
+ 
+    </Fragment>
   );
 };

@@ -2,20 +2,16 @@ import React, { Fragment } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Feature } from "../../components/Card/Feature";
 import { Input } from "../../components/Input";
-import { Footer } from "../../layouts/Footer";
-import { Header } from "../../layouts/Header";
-import "./index.css";
+import classes from "./Job.module.scss";
 export const JobPage = () => {
   return (
     <Fragment>
-      <div className="header py-5">
+      <div className={classes.job}>
         <div className="container">
-          <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
-            <div className="mr-5">
-              <h1 className="d-inline">
-                Discover The <p className="text"> OJT Jobs</p>
-              </h1>
-            </div>
+          <div className={classes.slogan}>
+            <h1>
+              Discover The <p> OJT Jobs</p>
+            </h1>
           </div>
         </div>
         <Input

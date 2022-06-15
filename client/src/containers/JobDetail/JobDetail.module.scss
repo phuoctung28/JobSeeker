@@ -1,7 +1,23 @@
 $primary-color: #f36522;
+$background-color: #f2f3f6;
+.job {
+  padding: 3rem 0;
+  background-color: $background-color;
+  .slogan {
+    display: flex;
+    margin: 3rem 3rem;
+    h1 {
+      display: inline;
+      p {
+        color: #f36522;
+      }
+    }
+  }
+}
 .company {
   display: flex;
   justify-content: space-between;
+  margin: 3rem 0;
   .information {
     width: 60%;
     h4 {

@@ -1,20 +1,21 @@
 import "./App.css";
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import { Homepage } from "./containers/Home";
 import { Login } from "./containers/Login";
 import { JobPage } from "./containers/Job";
 import { CompanyPage } from "./containers/Company";
 import { JobDetail } from "./containers/JobDetail";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { Profile } from "./containers/Profile";
 import { NotFound } from "./containers/NotFound";
 import { Footer } from "./layouts/Footer";
 import { Header } from "./layouts/Header";
 function App() {
+  let {id} = useParams();
   return (
     <Fragment>
-    <Header />
+      {id === "/" ? <></> : <Header />}
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -26,7 +27,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {id === "/" ? <></> : <Footer />}
     </Fragment>
   );
 }

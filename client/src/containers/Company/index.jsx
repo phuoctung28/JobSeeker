@@ -1,20 +1,16 @@
 import React, { Fragment } from "react";
 import { CompanyCard } from "../../components/Card/Company";
 import { Input } from "../../components/Input";
-import { Footer } from "../../layouts/Footer";
-import { Header } from "../../layouts/Header";
-
+import classes from "./Company.module.scss"
 export const CompanyPage = () => {
   return (
     <Fragment>
-      <div className="header py-5">
+      <div className={classes.company}>
         <div className="container">
-          <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
-            <div className="mr-5">
-              <h1 className="d-inline">
-                Exploring amazing <p className="text">Companies</p>
+          <div className={classes.slogan}>
+              <h1>
+                Exploring amazing <p>Companies</p>
               </h1>
-            </div>
           </div>
         </div>
         <Input

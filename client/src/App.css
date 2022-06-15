@@ -21,7 +21,8 @@ ul {
   outline: none;
   padding: 8px 16px;
   transition: all 0.3s;
-  background-color: var(--white-color);
+  background-color: #f36522;
+  color: white;
 }
 
 .button:hover {
