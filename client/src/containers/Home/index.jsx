@@ -15,7 +15,6 @@ export const Homepage = () => {
   }
   return (
     <Fragment>
-      <Header id="homepage" />
       <div className={classes.header}>
         <div className="container">
           <div className={classes.panel}>

@@ -10,9 +10,11 @@ import { Fragment, useEffect } from "react";
 import { Profile } from "./containers/Profile";
 import { NotFound } from "./containers/NotFound";
 import { Footer } from "./layouts/Footer";
+import { Header } from "./layouts/Header";
 function App() {
   return (
     <Fragment>
+    <Header />
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />

@@ -8,7 +8,6 @@ import "./index.css";
 export const JobPage = () => {
   return (
     <Fragment>
-      <Header id="homepage" />
       <div className="header py-5">
         <div className="container">
           <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
