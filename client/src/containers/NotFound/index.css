@@ -1,14 +1,6 @@
 .image {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); /* IE 9 */
-  -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
-}
-
-.wave {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }

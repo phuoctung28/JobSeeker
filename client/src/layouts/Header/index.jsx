@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import "./index.module.css";
+import classes from "./Header.module.css";
 export const Header = () => {
   return (
     <header>
-      <Navbar expand="lg" className="header">
+      <Navbar expand="lg" className={classes.header}>
         <Container>
           <Navbar.Brand href="/home">
             {" "}

@@ -7,13 +7,13 @@ import { Header } from "../../layouts/Header";
 export const CompanyPage = () => {
   return (
     <Fragment>
+      <Header id="homepage" />
       <div className="header py-5">
         <div className="container">
-          <Header id="homepage" />
           <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
             <div className="mr-5">
               <h1 className="d-inline">
-              Exploring amazing <p className="text">Companies</p>
+                Exploring amazing <p className="text">Companies</p>
               </h1>
             </div>
           </div>
@@ -31,7 +31,6 @@ export const CompanyPage = () => {
         <h4>Companies List</h4>
         <CompanyCard />
       </div>
-      <Footer />
     </Fragment>
   );
 };

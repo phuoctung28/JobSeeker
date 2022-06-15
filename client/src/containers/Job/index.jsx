@@ -8,9 +8,9 @@ import "./index.css";
 export const JobPage = () => {
   return (
     <Fragment>
+      <Header id="homepage" />
       <div className="header py-5">
         <div className="container">
-          <Header id="homepage" />
           <div className="d-flex ml-5 flex-row justify-content-between my-5 ">
             <div className="mr-5">
               <h1 className="d-inline">
@@ -46,7 +46,6 @@ export const JobPage = () => {
           <Feature />
         </div>
       </div>
-      <Footer />
     </Fragment>
   );
 };

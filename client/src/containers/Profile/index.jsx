@@ -6,9 +6,8 @@ import { Banner } from "../../components/Banner";
 export const Profile = () => {
   return (
     <Fragment>
-      <div className={classes.header}>
-        <Header id="homepage" />
-      </div>
+      <Header id="homepage" />
+      <div className={classes.header}></div>
       <Banner></Banner>
     </Fragment>
   );

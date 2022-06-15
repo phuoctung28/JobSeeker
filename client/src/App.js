@@ -6,12 +6,13 @@ import { Login } from "./containers/Login";
 import { JobPage } from "./containers/Job";
 import { CompanyPage } from "./containers/Company";
 import { JobDetail } from "./containers/JobDetail";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { Profile } from "./containers/Profile";
 import { NotFound } from "./containers/NotFound";
+import { Footer } from "./layouts/Footer";
 function App() {
   return (
-    <div className="vh-100">
+    <Fragment>
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -23,7 +24,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-    </div>
+      <Footer />
+    </Fragment>
   );
 }
 export default App;

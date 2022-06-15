@@ -8,16 +8,16 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Home.module.scss";
 import Button from "../../components/Button";
 export const Homepage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   async function handleSubmit(event) {
     event.preventDefault();
     navigate("/job", { replace: true });
   }
   return (
     <Fragment>
+      <Header id="homepage" />
       <div className={classes.header}>
         <div className="container">
-          <Header id="homepage" />
           <div className={classes.panel}>
             <div className="mr-5">
               <h1>
@@ -55,30 +55,29 @@ export const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="my-5">
-        <div className="container">
-          <div>
-            <h4 className="my-4">Categories</h4>
-            <CategoryList />
-          </div>
-          <div>
-            <h4 className="my-4">Featured Jobs</h4>
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-            <Feature />
-          </div>
+      <div className="my-5 container h-100">
+        <div>
+          <h4 className="my-4">Categories</h4>
+          <CategoryList />
+        </div>
+        <div>
+          <h4 className="my-4">Featured Jobs</h4>
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
+          <Feature />
         </div>
       </div>
-      <Button className="button-job" onClick={handleSubmit}>More jobs</Button>
-      <Footer />
+      <Button className="button-job" onClick={handleSubmit}>
+        More jobs
+      </Button>
     </Fragment>
   );
 };
