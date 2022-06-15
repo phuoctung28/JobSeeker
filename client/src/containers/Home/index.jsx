@@ -2,8 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
 import { Feature } from "../../components/Card/Feature";
-import { Footer } from "../../layouts/Footer";
-import { Header } from "../../layouts/Header";
 import { useNavigate } from "react-router-dom";
 import classes from "./Home.module.scss";
 import Button from "../../components/Button";
@@ -74,7 +72,7 @@ export const Homepage = () => {
           <Feature />
         </div>
       </div>
-      <Button className="button-job" onClick={handleSubmit}>
+      <Button className={classes.btnJob} onClick={handleSubmit}>
         More jobs
       </Button>
     </Fragment>

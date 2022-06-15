@@ -6,28 +6,32 @@ import { Login } from "./containers/Login";
 import { JobPage } from "./containers/Job";
 import { CompanyPage } from "./containers/Company";
 import { JobDetail } from "./containers/JobDetail";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Profile } from "./containers/Profile";
 import { NotFound } from "./containers/NotFound";
 import { Footer } from "./layouts/Footer";
 import { Header } from "./layouts/Header";
+import PrivateRoute from "./components/PrivateRoute";
 function App() {
-  let {id} = useParams();
+  // let uid = "";
+  // useEffect(() => {
+  //   uid = sessionStorage.getItem("uuid");
+  // }, []);
   return (
     <Fragment>
-      {id === "/" ? <></> : <Header />}
+      {/* {uid ? <></> : <Header />} */}
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Homepage />} />
+          <Route path="/home" element={<PrivateRoute component={Homepage} />} />
           <Route path="/job" element={<JobPage />} />
           <Route path="/job/jobDetail" element={<JobDetail />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-      {id === "/" ? <></> : <Footer />}
+      {/* {uid ? <></> : <Footer />} */}
     </Fragment>
   );
 }

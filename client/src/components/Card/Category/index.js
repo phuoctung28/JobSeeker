@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import classes from "./Category.module.scss";
 export const CategoryCard = (props) => {
   const { category, img, imgChild } = props;
   const onClickCategory = (e) => {
@@ -7,16 +7,16 @@ export const CategoryCard = (props) => {
     console.log(e.target.innerText);
   }
   return (
-    <div className="category" onClick={onClickCategory}>
+    <div className={classes.category} onClick={onClickCategory}>
       <img
-        className="first"
+        className={classes.first}
         width={48}
         height={48}
         src="/icons8-image-48.png"
         alt="design"
       />
       <img
-        className="second"
+        className={classes.second}
         width={48}
         height={48}
         src="/icons8-image-48 (1).png"
