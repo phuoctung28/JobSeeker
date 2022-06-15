@@ -1,0 +1,11 @@
+.Banner {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.mainContent {
+  width: 1228px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
