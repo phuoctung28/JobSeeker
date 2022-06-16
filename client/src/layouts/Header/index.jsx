@@ -1,7 +1,21 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import classes from "./Header.module.css";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import classes from "./Header.module.scss";
 export const Header = () => {
+  let navigate = useNavigate();
+  const onLogout = (e) => {
+    e.preventDefault();
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <header>
       <Navbar expand="lg" className={classes.header}>
@@ -24,11 +38,11 @@ export const Header = () => {
               <Nav.Link href="/company">Company</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <Navbar.Brand>
-            <a href="/profile">
-              <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" />
-            </a>
-            {/* <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" /> */}
+          <Navbar.Brand className={classes.dropdown}>
+            <img src="/icons8-circled-user-male-skin-type-4-48.png" alt="" />
+            <div className={classes.content}>
+              <div onClick={onLogout}>Log out</div>
+            </div>
           </Navbar.Brand>
         </Container>
       </Navbar>

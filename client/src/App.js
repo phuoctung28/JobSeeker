@@ -6,32 +6,40 @@ import { Login } from "./containers/Login";
 import { JobPage } from "./containers/Job";
 import { CompanyPage } from "./containers/Company";
 import { JobDetail } from "./containers/JobDetail";
-import { Fragment, useEffect } from "react";
-import { Profile } from "./containers/Profile";
+import { Fragment, useEffect, useState } from "react";
 import { NotFound } from "./containers/NotFound";
 import { Footer } from "./layouts/Footer";
 import { Header } from "./layouts/Header";
 import PrivateRoute from "./components/PrivateRoute";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
 function App() {
-  // let uid = "";
-  // useEffect(() => {
-  //   uid = sessionStorage.getItem("uuid");
-  // }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+  }, []);
   return (
     <Fragment>
-      {/* {uid ? <></> : <Header />} */}
       <BrowserRouter>
+        {isLoggedIn ? <Header /> : <></>}
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<PrivateRoute component={Homepage} />} />
-          <Route path="/job" element={<JobPage />} />
-          <Route path="/job/jobDetail" element={<JobDetail />} />
-          <Route path="/company" element={<CompanyPage />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/job" element={<PrivateRoute component={JobPage} />} />
+          <Route
+            path="/job/jobDetail"
+            element={<PrivateRoute component={JobDetail} />}
+          />
+          <Route
+            path="/company"
+            element={<PrivateRoute component={CompanyPage} />}
+          />
         </Routes>
+        {isLoggedIn ? <Footer /> : <></>}
       </BrowserRouter>
-      {/* {uid ? <></> : <Footer />} */}
     </Fragment>
   );
 }

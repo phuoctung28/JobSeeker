@@ -1,15 +1,16 @@
-.text {
-  color: #f36522;
-}
 .header {
-  background-color: #F2F3F6;
+  background-color: #f2f3f6;
   padding: 2rem 0;
 }
 .panel {
   display: flex;
   margin: 3rem 0 3rem 3rem;
   justify-content: space-between;
+  .text {
+    color: #f36522;
+  }
 }
+
 .button {
   background-color: #f36522;
   color: white;
@@ -19,7 +20,7 @@
   color: #bababa;
 }
 .btn {
-  color: #bababa!important;
+  color: #bababa !important;
 }
 .btnJob {
   padding: 1rem 8rem;

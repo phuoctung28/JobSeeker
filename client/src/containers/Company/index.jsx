@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { CompanyCard } from "../../components/Card/Company";
+import { CompanyList } from "../../components/Card/Company/CompanyList";
 import { Input } from "../../components/Input";
 import classes from "./Company.module.scss"
 export const CompanyPage = () => {
@@ -24,7 +25,7 @@ export const CompanyPage = () => {
       </div>
       <div className="container my-5">
         <h4>Companies List</h4>
-        <CompanyCard />
+        <CompanyList />
       </div>
     </Fragment>
   );

@@ -19,7 +19,7 @@ export const Homepage = () => {
             <div className="mr-5">
               <h1>
                 Discover Your<br></br>
-                <strong className="text">Dream</strong> Job
+                <strong className={classes.text}>Dream</strong> Job
               </h1>
               <div className="mt-5">
                 <Input

@@ -1,0 +1,29 @@
+$primary-color: #f36522;
+$title-color: #bababa;
+.card {
+  
+
+  border: 1px solid $title-color;
+  padding: 2rem 2rem;
+  margin-bottom: 30 px;
+  margin-top: 35px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  .post {
+    background-color: $primary-color;
+    border-radius: 4px;
+    padding: 0.5rem 6em;
+    color: white;
+  }
+  .tags {
+    display: flex;
+    justify-content: space-between;
+  }
+  .information {
+    color: $title-color;
+  }
+}   

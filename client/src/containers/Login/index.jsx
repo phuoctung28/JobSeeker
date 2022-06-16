@@ -37,7 +37,6 @@ export const Login = () => {
         return user;
       })
       .then((data) => {
-        sessionStorage.setItem("uuid", data.uid);
         console.log(data);
         navigate("/home");
       })

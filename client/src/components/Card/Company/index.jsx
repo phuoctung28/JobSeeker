@@ -1,8 +1,21 @@
 import React from 'react'
 import classes from "./Company.module.scss"
+import { useNavigate } from "react-router-dom";
 export const CompanyCard = () => {
+  let navigate = useNavigate();
+  const onRedirectToDetail = (e) => {
+    e.preventDefault()
+    navigate("/Job")
+  }
   return (
-    <div className='company'>
+    <div className={classes.card} onClick={onRedirectToDetail}>
+      <div>
+        <h1>Youtube</h1>
+      </div>
+      <div className={classes.information}>
+        <p>www.youtube.com</p>
+      </div>
+      <div className={classes.post}>3 job posted </div>
     </div>
-  )
+  );
 }
