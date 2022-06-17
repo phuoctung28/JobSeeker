@@ -11,6 +11,12 @@ export const Homepage = () => {
     event.preventDefault();
     navigate("/job", { replace: true });
   }
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <Fragment>
       <div className={classes.header}>
