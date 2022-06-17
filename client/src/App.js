@@ -27,16 +27,15 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
-          <Route path="/home" element={<PrivateRoute component={Homepage} isLoggedIn={isLoggedIn}/>} />
-          <Route path="/job" element={<PrivateRoute component={JobPage} isLoggedIn={isLoggedIn}/>} />
           <Route
-            path="/job/jobDetail"
-            element={<PrivateRoute component={JobDetail} isLoggedIn={isLoggedIn}/>}
+            path="/home"
+            element={
+              <PrivateRoute component={Homepage} isLoggedIn={isLoggedIn} />
+            }
           />
-          <Route
-            path="/company"
-            element={<PrivateRoute component={CompanyPage} isLoggedIn={isLoggedIn}/>}
-          />
+          <Route path="/job" element={<JobPage/>} />
+          <Route path="/job/jobDetail" element={<JobDetail />} />
+          <Route path="/company" element={<CompanyPage />} />
         </Routes>
         {isLoggedIn ? <Footer /> : <></>}
       </BrowserRouter>
