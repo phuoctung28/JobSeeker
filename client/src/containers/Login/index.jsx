@@ -8,14 +8,12 @@ import { AuthContext } from "../../context/AuthContext";
 export const Login = () => {
   const provider = new GoogleAuthProvider();
   const [error, setError] = useState("");
-  const [validation, setValidation] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, validation } = useContext(AuthContext);
 
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   auth.languageCode = "it";
   let navigate = useNavigate();
-
-  const onSubmitOAuth2 = (e) => {
+  const onSubmitOAuth2 = async (e) => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -25,12 +23,10 @@ export const Login = () => {
         // The signed-in user info.
         const user = result.user;
         if (!checkFPTEmail(user.email)) {
-          console.log("Fail");
-          setValidation(false);
-          navigate("/");
+          // console.log("Fail");
           deleteUser(user)
             .then(() => {
-              // User deleted.
+              return;
             })
             .catch((error) => {
               // An error ocurred
@@ -39,10 +35,6 @@ export const Login = () => {
           throw new Error("Failllll");
         }
         return user;
-      })
-      .then(() => {
-        console.log(user);
-        navigate("/home");
       })
       .catch((err) => {
         // Handle Errors here.
@@ -57,9 +49,9 @@ export const Login = () => {
   };
   useEffect(() => {
     if (validation === false) {
-      setError("Your email has not permission to login");
-    } else setError("");
-  }, [error, validation]);
+      setError("Your email has not permission")
+    }
+  }, []);
   return (
     <>
       {!!user ? (

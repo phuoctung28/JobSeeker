@@ -5,21 +5,20 @@ import { AuthContext } from "./AuthContext";
 
 export const AuthState = ({ children }) => {
   const [user, setUser] = useState(null);
-
+  const [validation, setValidation] = useState(true);
   useEffect(() => {
     onAuthStateChanged(auth, (userData) => {
       if (userData) {
         setUser(userData)
         // ...
       } else {
-        // User is signed out
-        // ...
+        setUser(null)
+        setValidation(false)
       }
     });
-    
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, validation }}>{children}</AuthContext.Provider>
   );
 };

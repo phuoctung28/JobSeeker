@@ -29,7 +29,7 @@ export const Homepage = () => {
               </h1>
               <div className="mt-5">
                 <Input
-                  symbol={<i class="fa fa-search"></i>}
+                  symbol={<i className="fa fa-search"></i>}
                   className="py-4 px-5 shadow-sm"
                   placeholder="Search for job title"
                 >

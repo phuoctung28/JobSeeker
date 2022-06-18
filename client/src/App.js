@@ -20,9 +20,9 @@ function App() {
           <Header />
           <Routes>
             <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route element={<ProtectedRoutes />}>
-              <Route path="/home" element={<Homepage />} />
+              <Route path="/" element={<Homepage />} />
               <Route path="/job" element={<JobPage />} />
               <Route path="/job/jobDetail" element={<JobDetail />} />
               <Route path="/company" element={<CompanyPage />} />
