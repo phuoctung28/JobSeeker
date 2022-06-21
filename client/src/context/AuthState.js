@@ -6,19 +6,22 @@ import { AuthContext } from "./AuthContext";
 export const AuthState = ({ children }) => {
   const [user, setUser] = useState(null);
   const [validation, setValidation] = useState(true);
+  const [job, setJob] = useState([]);
   useEffect(() => {
     onAuthStateChanged(auth, (userData) => {
       if (userData) {
-        setUser(userData)
-        // ...
+        console.log("Loi o day auth state");
+        setUser(userData);
+        setValidation(true);
       } else {
-        setUser(null)
-        setValidation(false)
+        setUser(null);
       }
     });
-  }, []);
+  }, [user, validation]);
 
   return (
-    <AuthContext.Provider value={{ user, validation }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, validation, setValidation, job, setJob }}>
+      {children}
+    </AuthContext.Provider>
   );
 };

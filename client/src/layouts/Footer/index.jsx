@@ -3,7 +3,6 @@ import { AuthContext } from "../../context/AuthContext";
 import classes from "./Footer.module.scss";
 export const Footer = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <>
       {!!user ? (

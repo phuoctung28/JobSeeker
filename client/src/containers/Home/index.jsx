@@ -1,16 +1,26 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Input } from "../../components/Input";
-import { Feature } from "../../components/Card/Feature";
 import { useNavigate } from "react-router-dom";
 import classes from "./Home.module.scss";
 import Button from "../../components/Button";
+import { AuthContext } from "../../context/AuthContext";
+import { loadAllJob } from "../../context/ActionCreator";
+import { FeatureList } from "../../components/Card/Feature/FeatureList";
 export const Homepage = () => {
   const navigate = useNavigate();
+  const { job, setJob } = useContext(AuthContext);
   async function handleSubmit(event) {
     event.preventDefault();
     navigate("/job", { replace: true });
   }
+  // loadAllJob()
+  //   .then((result) => {
+  //     setJob(result.data);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -65,17 +75,7 @@ export const Homepage = () => {
         </div>
         <div>
           <h4 className="my-4">Featured Jobs</h4>
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
+          <FeatureList jobList={job} />
         </div>
       </div>
       <Button className={classes.btnJob} onClick={handleSubmit}>

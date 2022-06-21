@@ -1,24 +1,25 @@
 import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { auth } from "../../firebase";
 import classes from "./Header.module.scss";
 export const Header = () => {
   let navigate = useNavigate();
-    const { user } = useContext(AuthContext);
+  const { user, setValidation } = useContext(AuthContext);
   const onLogout = (e) => {
     e.preventDefault();
     signOut(auth)
       .then(() => {
+        setValidation(true);
         navigate("/");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  console.log("user o header", !!user);
   return (
     <>
       {!!user ? (
@@ -32,15 +33,15 @@ export const Header = () => {
                   width="339px"
                   height="75px"
                   className="d-inline-block align-middle"
-                  alt="React Bootstrap logo"
+                  alt="FPT logo"
                 />
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto justify-content-center">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/job">Jobs</Nav.Link>
-                  <Nav.Link href="/company">Company</Nav.Link>
+                  <Link to="/">Home</Link>
+                  <Link to="/job">Jobs</Link>
+                  <Link to="/company">Company</Link>
                 </Nav>
               </Navbar.Collapse>
               <Navbar.Brand className={classes.dropdown}>
@@ -55,7 +56,9 @@ export const Header = () => {
             </Container>
           </Navbar>
         </header>
-      ) : <></>}
+      ) : (
+        <></>
+      )}
     </>
   );
 };
