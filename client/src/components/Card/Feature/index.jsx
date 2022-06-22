@@ -38,14 +38,14 @@ export const Feature = ({ job }) => {
         {/* <div>title</div> */}
         {/* workLocation */}
       </div>
-      <div className={classes.time}>{jobInfo.datePublished}</div>
+      <div className={classes.time}>Full-time</div>
 
       <div className={classes.tags}>
         <Tag tag="React" />
         <Tag tag="React" />
         <Tag tag="React" />
       </div>
-      <div className={classes.starting__time}>Starting May 2022</div>
+      <div className={classes.starting__time}>{jobInfo.datePublished}</div>
     </div>
   );
 };
