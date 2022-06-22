@@ -14,13 +14,17 @@ export const Homepage = () => {
     event.preventDefault();
     navigate("/job", { replace: true });
   }
-  // loadAllJob()
-  //   .then((result) => {
-  //     setJob(result.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  useEffect(() => {
+    loadAllJob()
+    .then((result) => {
+      setJob(result.data);
+      console.log(result.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
+ 
   useEffect(() => {
     window.scrollTo({
       top: 0,

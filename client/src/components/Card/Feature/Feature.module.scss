@@ -10,7 +10,10 @@ $title-color: #bababa;
   margin: 2rem 0;
   cursor: pointer;
   .information {
-
+    .location {
+      width: 50%;
+      word-wrap: break-word;
+    }
   }
   .time {
     background-color: $primary-color;

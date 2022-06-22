@@ -57,51 +57,57 @@ export const Login = () => {
     } else setError("");
   }, [validation]);
   return (
-    <div
-      className="vh-100 d-flex flex-column justify-content-center align-items-center bg-image "
-      style={{
-        backgroundImage: "url(/bg-img.png)",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="col-md-4 px-0">
-        <img
-          src="https://career-hcmuni.fpt.edu.vn/images/logo-fpt-login.png"
-          alt=""
-          className="img-fluid max-w "
-        />
-      </div>
-
-      <div className="bg-white text-center mb-5">
-        <p className="word-break">
-          Let's build an outstanding profile and get the opportunity of business
-          ideals
-        </p>
-      </div>
-      <p className="text-danger">{error}</p>
-      <div className="d-flex w-100 justify-content-center my-5">
-        <form className="w-25">
-          <Button
-            className="shadow bg-white rounded d-flex mt-4"
-            fullWidth
-            onClick={onSubmitOAuth2}
-          >
+    <>
+      {!!user ? (
+        <Navigate to="/" />
+      ) : (
+        <div
+          className="vh-100 d-flex flex-column justify-content-center align-items-center bg-image "
+          style={{
+            backgroundImage: "url(/bg-img.png)",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="col-md-4 px-0">
             <img
-              className="ratio-4x3"
-              src="https://img.icons8.com/color/32/000000/google-logo.png"
-              alt="google"
-            />{" "}
-            <p className="mx-auto my-auto text-black font-weight-bold">
-              Login with Google
+              src="https://career-hcmuni.fpt.edu.vn/images/logo-fpt-login.png"
+              alt=""
+              className="img-fluid max-w "
+            />
+          </div>
+
+          <div className="bg-white text-center mb-5">
+            <p className="word-break">
+              Let's build an outstanding profile and get the opportunity of
+              business ideals
             </p>
-          </Button>
-        </form>
-      </div>
-      <div className="mt-5">
-        <p className="text-black opacity-25 text-center">
-          Copyright ©2022 Produced by FPT Technology Department
-        </p>
-      </div>
-    </div>
+          </div>
+          <p className="text-danger">{error}</p>
+          <div className="d-flex w-100 justify-content-center my-5">
+            <form className="w-25">
+              <Button
+                className="shadow bg-white rounded d-flex mt-4"
+                fullWidth
+                onClick={onSubmitOAuth2}
+              >
+                <img
+                  className="ratio-4x3"
+                  src="https://img.icons8.com/color/32/000000/google-logo.png"
+                  alt="google"
+                />{" "}
+                <p className="mx-auto my-auto text-black font-weight-bold">
+                  Login with Google
+                </p>
+              </Button>
+            </form>
+          </div>
+          <div className="mt-5">
+            <p className="text-black opacity-25 text-center">
+              Copyright ©2022 Produced by FPT Technology Department
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 };

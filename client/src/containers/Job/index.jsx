@@ -36,6 +36,7 @@ export const JobPage = () => {
         </div>
         <div>
           <h4 className="my-4">Related Job Postings</h4>
+          {/* <Feature />
           <Feature />
           <Feature />
           <Feature />
@@ -43,8 +44,14 @@ export const JobPage = () => {
           <Feature />
           <Feature />
           <Feature />
-          <Feature />
-          <Feature />
+          <Feature /> */}
+          <div>Feature</div>
+          <div>Feature</div>
+          <div>Feature</div>
+          <div>Feature</div>
+          <div>Feature</div>
+          <div>Feature</div>
+          <div>Feature</div>
         </div>
       </div>
     </Fragment>

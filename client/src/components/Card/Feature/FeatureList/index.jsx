@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import {Feature} from "../index"
+import { Feature } from "../";
 export const FeatureList = ({ jobList }) => {
- 
-  const [jobs, setJobs] = useState([]);
-  useEffect(() => {
-    if (jobList) {
-      console.log(jobList);
-      setJobs(jobList)
-    }
-  }, [jobList,jobs]);
+  // console.log(jobList[0]);
+  // useEffect(() => {
+  //   if (jobList) {
+  //     effect
+  //   }
+  //   return () => {
+  //     cleanup
+  //   };
+  // }, [input]);
   return (
     <div className="feature__list">
-      {jobs.forEach((job) => {
-        <Feature job={job}/>;
-      })}
+      {jobList.map((job) => (
+        <Feature job={job} />
+      ))}
+      {/* <Feature job={jobList[0]} /> */}
     </div>
   );
 };
