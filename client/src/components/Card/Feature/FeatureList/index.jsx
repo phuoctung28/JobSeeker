@@ -12,8 +12,8 @@ export const FeatureList = ({ jobList }) => {
   // }, [input]);
   return (
     <div className="feature__list">
-      {jobList.map((job) => (
-        <Feature job={job} />
+      {jobList.map((job, index) => (
+        <Feature job={job} key={index}/>
       ))}
       {/* <Feature job={jobList[0]} /> */}
     </div>

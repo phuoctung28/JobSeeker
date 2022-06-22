@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Category.module.scss";
-export const CategoryCard = (props) => {
-  const { category, img, imgChild } = props;
+export const CategoryCard = ({category}) => {
+  const [categoryInfo, setCategoryInfo] = useState({
+    name: ""
+  });
+  useEffect(() => {
+    if (category) {
+      setCategoryInfo({
+        name: category.name
+      })
+    }
+  }, [category]);
   const onClickCategory = (e) => {
     e.preventDefault();
     console.log(e.target.innerText);
@@ -22,7 +31,7 @@ export const CategoryCard = (props) => {
         src="/icons8-image-48 (1).png"
         alt="design"
       />
-      <p>{category}</p>
+      <p>{categoryInfo.name}</p>
     </div>
   );
 };

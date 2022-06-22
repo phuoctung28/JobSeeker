@@ -8,3 +8,19 @@ export const loadAllJob = async () => {
     console.log(error);
   }
 };
+
+export const loadAllCompany = async () => {
+  try {
+    return await JobAPI.loadCompany();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const loadAllCategory = async () => {
+  try {
+    return await JobAPI.loadCategory();
+  } catch (error) {
+    console.log(error);
+  }
+}
