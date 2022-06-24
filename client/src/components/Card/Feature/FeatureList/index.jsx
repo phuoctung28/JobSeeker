@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Feature } from "../";
+import { mockData } from "../../../../mockData";
 export const FeatureList = ({ jobList }) => {
+  let jobListss = mockData;
   // console.log(jobList[0]);
   // useEffect(() => {
   //   if (jobList) {
@@ -12,7 +14,7 @@ export const FeatureList = ({ jobList }) => {
   // }, [input]);
   return (
     <div className="feature__list">
-      {jobList.map((job) => (
+      {jobListss.map((job) => (
         <Feature job={job} />
       ))}
       {/* <Feature job={jobList[0]} /> */}
