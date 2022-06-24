@@ -14,8 +14,13 @@ export const FeatureList = ({ jobList }) => {
   // }, [input]);
   return (
     <div className="feature__list">
+<<<<<<< HEAD
       {jobListss.map((job) => (
         <Feature job={job} />
+=======
+      {jobList.map((job, index) => (
+        <Feature job={job} key={index}/>
+>>>>>>> d92995fcbe675ed9ba5bcf788d95434e528f0ac1
       ))}
       {/* <Feature job={jobList[0]} /> */}
     </div>

@@ -1,9 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { CompanyCard } from "../../components/Card/Company";
 import { CompanyList } from "../../components/Card/Company/CompanyList";
 import { Input } from "../../components/Input";
+import { loadAllCompany } from "../../context/ActionCreator";
 import classes from "./Company.module.scss"
 export const CompanyPage = () => {
+  const [company, setCompany] = useState([]);
+  useEffect(() => {
+    loadAllCompany()
+    .then((result) => {
+      setCompany(result.data);
+      console.log(result.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
   return (
     <Fragment>
       <div className={classes.company}>
@@ -15,7 +27,7 @@ export const CompanyPage = () => {
           </div>
         </div>
         <Input
-          symbol={<i class="fa fa-search"></i>}
+          symbol={<i className="fa fa-search"></i>}
           groupClasses="w-50 mx-auto my-0"
           className="py-4 px-5 shadow-sm mx-auto my-0 w-50"
           placeholder="Search for job title"
@@ -25,7 +37,7 @@ export const CompanyPage = () => {
       </div>
       <div className="container my-5">
         <h4>Companies List</h4>
-        <CompanyList />
+        <CompanyList companyList={company}/>
       </div>
     </Fragment>
   );

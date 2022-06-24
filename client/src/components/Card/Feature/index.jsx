@@ -10,7 +10,7 @@ export const Feature = ({ job }) => {
   });
   useEffect(() => {
     if (job) {
-      console.log(typeof job.datePublished);
+      // console.log(typeof job.datePublished);
     setJob({
       jobTitle: job.jobTitle,
       workLocation: job.workLocation,
@@ -19,7 +19,7 @@ export const Feature = ({ job }) => {
   }
   }, [job]);
   
-  console.log(job);
+  // console.log(job);
   let navigate = useNavigate();
   const Tag = ({ tag }) => {
     return <div className={classes.tag}>{tag}</div>;
