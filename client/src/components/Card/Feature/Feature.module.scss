@@ -4,9 +4,11 @@ $title-color: #bababa;
   border: 1px solid $title-color;
   padding: 4rem 4rem;
   border-radius: 8px;
-  display: flex;
+  // display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
+  // flex-flow: row wrap;
+  display: grid;
   margin: 2rem 0;
   cursor: pointer;
   .information {
