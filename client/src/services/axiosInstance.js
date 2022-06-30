@@ -1,6 +1,6 @@
 import queryString from "querystring";
 import axios from "axios";
-const baseURL = "http://localhost:8080/api";
+const baseURL = "http://localhost:8084/api";
 
 const axiosInstance = axios.create({
   baseURL,
@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
     "content-type": "application/json",
   },
   paramsSerializer: (params) => queryString.stringify(params),
-  timeout: 10000,
+  timeout: 3000,
 })
 
 export default axiosInstance;

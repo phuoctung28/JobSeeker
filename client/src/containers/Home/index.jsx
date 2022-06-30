@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { AuthContext } from "../../context/AuthContext";
 import { loadAllJob } from "../../context/ActionCreator";
 import { FeatureList } from "../../components/Card/Feature/FeatureList";
+import { SearchInput } from "../../components/Search";
 export const Homepage = () => {
   const navigate = useNavigate();
   const { job, setJob } = useContext(AuthContext);
@@ -16,15 +17,15 @@ export const Homepage = () => {
   }
   useEffect(() => {
     loadAllJob()
-    .then((result) => {
-      setJob(result.data);
-      console.log(result.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((result) => {
+        setJob(result.data);
+        console.log(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
- 
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -42,30 +43,8 @@ export const Homepage = () => {
                 <strong className={classes.text}>Dream</strong> Job
               </h1>
               <div className="mt-5">
-                <Input
-                  symbol={<i className="fa fa-search"></i>}
-                  className="py-4 px-5 shadow-sm"
-                  placeholder="Search for job title"
-                >
-                  <button className="px-2 button">Search</button>
-                </Input>
-                <div className="d-flex flex-row example">
-                  <div className="font-weight-bold py-2">Example:</div>
-                  <div className="d-flex flex-row ">
-                    <div className="border rounded mx-2 p-2 pe-auto btn">
-                      Front-end
-                    </div>
-                    <div className="border rounded mx-2 p-2 pe-auto btn">
-                      Front-end
-                    </div>
-                    <div className="border rounded mx-2 p-2 pe-auto btn">
-                      Front-end
-                    </div>
-                    <div className="border rounded mx-2 p-2 pe-auto btn">
-                      Front-end
-                    </div>
-                  </div>
-                </div>
+                <SearchInput />
+  
               </div>
             </div>
             <img src="/bg.svg" width={576.03} height={357.19} alt="" />
