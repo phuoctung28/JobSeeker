@@ -42,6 +42,7 @@ export const Header = () => {
                   <Link to="/">Home</Link>
                   <Link to="/job">Jobs</Link>
                   <Link to="/company">Company</Link>
+                  <Link to="/application">My Application</Link>
                 </Nav>
               </Navbar.Collapse>
               <Navbar.Brand className={classes.dropdown}>

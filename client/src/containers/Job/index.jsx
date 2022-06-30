@@ -1,9 +1,21 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Feature } from "../../components/Card/Feature";
 import { Input } from "../../components/Input";
+import { loadAllJob } from "../../context/ActionCreator";
+import { AuthContext } from "../../context/AuthContext";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
+  const {job, setJob} = useContext(AuthContext);
+  useEffect(() => {
+    loadAllJob()
+      .then((result) => {
+        setJob(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   useEffect(() => {
     window.scrollTo({
       top: 0,

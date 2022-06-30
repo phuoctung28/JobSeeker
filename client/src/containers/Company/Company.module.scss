@@ -1,15 +1,32 @@
-$background-color: #F2F3F6;
+$background-color: #f2f3f6;
 .company {
   padding: 3rem 0;
   background-color: $background-color;
   .slogan {
     display: flex;
     margin: 3rem 3rem;
-  h1 {
-    display: inline;
-    p {
-      color: #f36522;
+    h1 {
+      display: inline;
+      p {
+        color: #f36522;
+      }
     }
   }
+}
+.semester {
+  border: 1px solid #f36522;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f36522;
+  &:hover {
+    color: #fff;
+    background-color: #f36522;
+    border-color: #f36522;
+  }
+  &:focus {
+    color: #fff;
+    background-color: #f36522;
+    border-color: #f36522;
   }
 }

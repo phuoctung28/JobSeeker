@@ -1,17 +1,20 @@
-import React from "react";
-import { storage } from "firebase";
+import { storage } from "../../../firebase.js";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
-
+import classes from "./Apply.module.css";
+import { Modal } from "react-bootstrap";
+import Button from "../../Button/index.jsx";
 export const Apply = () => {
-  const [progress, setProgress] = useState(0);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const formHandler = (e) => {
     e.preventDefault();
     const file = e.target[0].files[0];
     upLoadFiles(file);
     console.log(file.type);
   };
-
   const upLoadFiles = (file) => {
     if (!file) return;
     if (file.type !== "application/pdf") console.log("Error");
@@ -24,7 +27,7 @@ export const Apply = () => {
           const prog = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
-          setProgress(prog);
+          // setProgress(prog);
         },
         (err) => {
           console.log(err);
@@ -37,21 +40,35 @@ export const Apply = () => {
       );
     }
   };
-
+  // console.log("state tai apply component: ", state);
   return (
-    <div className="App">
-      <form onSubmit={formHandler}>
-        <input
-          type="file"
-          className="input"
-          accept="application/pdf,application/msword,
-application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          // onChange={fileValidation}
-        ></input>
-        <button type="submit">Upload</button>
-      </form>
-      <hr></hr>
-      <h2>Uploaded {progress}%</h2>
-    </div>
+    <>
+      <Button className="rounded-2 my-5" onClick={handleShow}>
+        Apply Job
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Upload CV</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={formHandler}>
+            <input
+              type="file"
+              className="input"
+              accept="application/pdf"
+              // onChange={fileValidation}
+            ></input>
+            <Button type="submit" className="rounded-2">Upload</Button>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className="rounded-2" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+    </>
   );
 };

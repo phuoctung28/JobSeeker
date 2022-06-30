@@ -1,0 +1,25 @@
+$primary-color: #f36522;
+$title-color: #bababa;
+.container {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid $title-color;
+  border-radius: 4px;
+  .card {
+    display: flex;
+    justify-content: space-between;
+    .image {
+      object-fit: contain;
+      margin: auto 2rem;
+    }
+    h3 {
+      text-align: center;
+      margin: auto 0;
+    }
+    .button {
+      height: 50%;
+      margin: auto 2rem;
+      border-radius: 4px;
+    }
+  }
+}

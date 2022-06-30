@@ -11,6 +11,7 @@ import { Footer } from "./layouts/Footer";
 import { Header } from "./layouts/Header";
 import ProtectedRoutes from "./components/PrivateRoute";
 import { AuthState } from "./context/AuthState";
+import { Application } from "./containers/Application";
 
 function App() {
   return (
@@ -21,11 +22,14 @@ function App() {
           <Routes>
             <Route path="*" element={<NotFound />} />
             <Route path="/login" element={<Login />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/job" element={<JobPage />} />
-              <Route path="/job/jobDetail" element={<JobDetail />} />
-              <Route path="/company" element={<CompanyPage />} />
+            <Route path="/" element={<ProtectedRoutes />}>
+              <Route index element={<Homepage />} />
+              <Route path="job">
+                <Route index element={<JobPage />} />
+                <Route path=":jobId" element={<JobDetail />} />
+              </Route>
+              <Route path="company" element={<CompanyPage />} />
+              <Route path="application" element={<Application />} />
             </Route>
           </Routes>
           <Footer />
