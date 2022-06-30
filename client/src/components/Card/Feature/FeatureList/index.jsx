@@ -5,7 +5,7 @@ export const FeatureList = ({ jobList }) => {
   return (
     <div className="feature__list">
       {jobList.map((job, index) => (
-        <Feature job={job} key={index}/>
+        <Feature job={job} key={index} />
       ))}
     </div>
   );
