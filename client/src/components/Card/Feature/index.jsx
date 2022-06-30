@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import JobAPI from "../../../services/job";
 import classes from "./Feature.module.scss";
 export const Feature = ({ job }) => {
   // const { jobTitle, workLocation, datePublished } = job;
+  let navigate = useNavigate();
   const [jobInfo, setJob] = useState({
+    jobId: null,
     jobTitle: "",
     workLocation: "",
     datePublished: "",
@@ -11,35 +14,31 @@ export const Feature = ({ job }) => {
   useEffect(() => {
     if (job) {
       // console.log(typeof job.datePublished);
-    setJob({
-      jobTitle: job.jobTitle,
-      workLocation: job.workLocation,
-      datePublished: new Date(job.datePublished).toDateString()
-    })
-  }
+      setJob({
+        jobId: job.id,
+        jobTitle: job.jobTitle,
+        workLocation: job.workLocation,
+        datePublished: new Date(job.datePublished).toDateString(),
+      });
+    }
   }, [job]);
-  
-  // console.log(job);
-  let navigate = useNavigate();
+
   const Tag = ({ tag }) => {
     return <div className={classes.tag}>{tag}</div>;
   };
   const onRedirectToDetail = (e) => {
     e.preventDefault();
-    navigate("/job/jobDetail");
+    // let a = await JobAPI.searchJob(jobInfo.jobId);
+    // console.log(a.data);
+    navigate(`job/${jobInfo.jobId}`);
   };
   return (
     <div className={classes.card} onClick={onRedirectToDetail}>
       <div className={classes.information}>
         <h4>{jobInfo.jobTitle}</h4>
-        {/* <div>title</div> */}
-        {/* jobTitle */}
         <p className={classes.location}>{jobInfo.workLocation}</p>
-        {/* <div>title</div> */}
-        {/* workLocation */}
       </div>
       <div className={classes.time}>Full-time</div>
-
       <div className={classes.tags}>
         <Tag tag="React" />
         <Tag tag="React" />

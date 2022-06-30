@@ -10,7 +10,8 @@ const Detail = ({ title, description }) => {
     </div>
   );
 };
-export const JobCardDetail = () => {
+export const JobCardDetail = ({ data }) => {
+  const { workLocation, salary, jobTitle } = data;
   const [state, setState] = useState("close");
   // const onToggle = (e) => {
   //   e.preventDefault();
@@ -23,17 +24,17 @@ export const JobCardDetail = () => {
         <div className={classes.detail}>
           <div className="w-50">
             <Detail title="Job type" description="Fulltime" />
-            <Detail title="Location" description="Lot B3, Sang Tao Street, E-Office zone, Tan Thuan Dong Ward, District 7, Ho Chi Minh City, Vietnam" />
+            <Detail title="Location" description={workLocation} />
           </div>
           <div className="w-50 mx-3 px-3">
-            <Detail title="Title" description="Giảng viên Công Nghệ Thông Tin" />
-            <Detail title="Salary" description="10 Days" />
+            <Detail title="Title" description={jobTitle} />
+            <Detail title="Salary" description={salary} />
           </div>
         </div>
         {/* <Button className="rounded-2 my-5" onClick={onToggle}>
           Apply Jobs
         </Button> */}
-        <Apply/>
+        <Apply />
       </div>
     </>
   );

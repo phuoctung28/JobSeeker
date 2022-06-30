@@ -26,7 +26,7 @@ export const Header = () => {
         <header>
           <Navbar expand="lg" className={classes.header}>
             <Container>
-              <Navbar.Brand href="/">
+              <Link to="/">
                 {" "}
                 <img
                   src="/logo-fpt-login.png"
@@ -35,10 +35,10 @@ export const Header = () => {
                   className="d-inline-block align-middle"
                   alt="FPT logo"
                 />
-              </Navbar.Brand>
+              </Link>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto justify-content-center">
+                <Nav className={classes.link}>
                   <Link to="/">Home</Link>
                   <Link to="/job">Jobs</Link>
                   <Link to="/company">Company</Link>

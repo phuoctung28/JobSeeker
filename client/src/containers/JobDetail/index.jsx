@@ -1,12 +1,30 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { JobCard } from "../../components/Card/JobCard";
 import { JobCardDetail } from "../../components/Card/JobCardDetail";
 import { Input } from "../../components/Input";
 import classes from "./JobDetail.module.scss";
 import Button from "../../components/Button";
 import { AuthContext } from "../../context/AuthContext";
+import { useParams } from "react-router-dom";
+import JobAPI from "../../services/job";
 export const JobDetail = () => {
   const { job } = useContext(AuthContext);
+  const [currentJob, setCurrentJob] = useState({});
+  let params = useParams();
+  useEffect(() => {
+    if (params) {
+      JobAPI.searchJob(params.jobId)
+        .then((result) => {
+          setCurrentJob({ ...result.data });
+        })
+        .then(() => {
+          console.log(currentJob.company);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
   let {
     company,
     datePublished,
@@ -16,10 +34,12 @@ export const JobDetail = () => {
     responsibility,
     salary,
     workLocation,
-  } = job[0];
-  responsibility = responsibility.split("\n");
-  let a = [...responsibility];
-  console.log(a);
+  } = job[10];
+  // console.log(currentJob);
+  responsibility = [...responsibility.split("\n")];
+  qualifications = [...qualifications.split("\n")];
+  jobSummary = [...jobSummary.split("\n")];
+  // console.log(job[0]);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -54,44 +74,26 @@ export const JobDetail = () => {
           <div className={classes.information}>
             <h4>{company.name}</h4>
             <p>{company.description}</p>
-            <h4>Role Overview</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst
-              diam malesuada nisl eget commodo sed. Eu, varius vestibulum dui
-              elit sed. Penatibus consectetur consectetur porta nulla volutpat
-              vitae adipiscing. Eleifend donec volutpat pretium faucibus. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Dictumst diam
-              malesuada nisl eget commodo sed. Eu, varius vestibulum dui elit
-              sed. Penatibus consectetur consectetur porta nulla volutpat vitae
-              adipiscing. Eleifend donec volutpat pretium faucibus.
-            </p>
             <h4>Responsibilities</h4>
             <Fragment>
-              {/* {responsibility.forEach((sentence) => {
-                <p>{sentence}</p>;
-              })} */}
-              {/* <p>{responsibility.forEach((sentence) => {
-                <p>{sentence}</p>
-              })}</p> */}
-              {a.map((sentence, index) => {
-                <p key={index}>{sentence}</p>;
+              {responsibility.map((sentence, index) => {
+                return <p key={index}>{sentence}</p>;
               })}
             </Fragment>
             <h4>What we would like to see in our idea candidate</h4>
-            <p>
-              - Incident management: Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Neque, in at semper ut adipiscing. <br />
-              - Incident management: Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Neque, in at semper ut adipiscing. <br />
-              - Incident management: Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Neque, in at semper ut adipiscing. <br />
-              - Incident management: Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Neque, in at semper ut adipiscing. <br />
-              - Incident management: Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Neque, in at semper ut adipiscing. <br />
-            </p>
+            <Fragment>
+              {qualifications.map((sentence, index) => {
+                return <p key={index}>{sentence}</p>;
+              })}
+            </Fragment>
+            <h4>Benefits</h4>
+            <Fragment>
+              {jobSummary.map((sentence, index) => {
+                return <p key={index}>{sentence}</p>;
+              })}
+            </Fragment>
           </div>
-          <JobCardDetail />
+          <JobCardDetail data={currentJob} />
         </div>
       </div>
     </Fragment>
