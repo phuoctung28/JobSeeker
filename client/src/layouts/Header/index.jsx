@@ -39,10 +39,18 @@ export const Header = () => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto justify-content-center">
-                  <Link to="/">Home</Link>
-                  <Link to="/job">Jobs</Link>
-                  <Link to="/company">Company</Link>
-                  <Link to="/application">My Application</Link>
+                  <Link to="/" className={classes.headerLinks}>
+                    Home
+                  </Link>
+                  <Link to="/job" className={classes.headerLinks}>
+                    Jobs
+                  </Link>
+                  <Link to="/company" className={classes.headerLinks}>
+                    Company
+                  </Link>
+                  <Link to="/application" className={classes.headerLinks}>
+                    My Application
+                  </Link>
                 </Nav>
               </Navbar.Collapse>
               <Navbar.Brand className={classes.dropdown}>
