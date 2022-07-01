@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { loadAllJob } from "../../context/ActionCreator";
 import { FeatureList } from "../../components/Card/Feature/FeatureList";
 import { SearchInput } from "../../components/Search";
+import { mockData } from "../../mockData";
 export const Homepage = () => {
   const navigate = useNavigate();
   const { job, setJob } = useContext(AuthContext);
@@ -15,16 +16,16 @@ export const Homepage = () => {
     event.preventDefault();
     navigate("/job", { replace: true });
   }
-  useEffect(() => {
-    loadAllJob()
-      .then((result) => {
-        setJob(result.data);
-        console.log(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   loadAllJob()
+  //     .then((result) => {
+  //       setJob(result.data);
+  //       console.log(result.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   useEffect(() => {
     window.scrollTo({
@@ -58,7 +59,7 @@ export const Homepage = () => {
         </div>
         <div>
           <h4 className="my-4">Featured Jobs</h4>
-          <FeatureList jobList={job} />
+          <FeatureList jobList={mockData} />
         </div>
       </div>
       <Button className={classes.btnJob} onClick={handleSubmit}>

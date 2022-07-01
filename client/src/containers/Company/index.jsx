@@ -4,6 +4,7 @@ import { CompanyCard } from "../../components/Card/Company";
 import { CompanyList } from "../../components/Card/Company/CompanyList";
 import { Input } from "../../components/Input";
 import { loadAllCompany } from "../../context/ActionCreator";
+import { mockCompany } from "../../mockData";
 import classes from "./Company.module.scss";
 export const CompanyPage = () => {
   const [company, setCompany] = useState([]);
@@ -49,7 +50,7 @@ export const CompanyPage = () => {
             <Dropdown.Item href="#/action-3">Spring 2023</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <CompanyList companyList={company} />
+        <CompanyList companyList={mockCompany} />
       </div>
     </Fragment>
   );
