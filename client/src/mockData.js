@@ -120,3 +120,175 @@ export const mockData = [
       "qualifications": "- Học vấn: Sinh viên;\n- Có bằng IELTS 6.0 trở lên (không kĩ năng nào dưới 6.0) hoặc sinh viên ngành Ngôn Ngữ Anh;\n- Kỹ năng quản lý, sắp xếp công việc khoa học;\n- Kiên trì, tỉ mỉ, sáng tạo là 1 đức tính cần thiết;\n- Nhanh nhẹn, hoạt bát, thân thiện, ngoại hình ưa nhìn;\n- Có tâm và trách nhiệm với công việc của mình\n- Ưu tiên ứng viên có kinh nghiệm trong việc giảng dạy anh văn"
   }
 ]
+export const mockCompany = [
+    {
+        "id": 1,
+        "name": "FPT Telecom",
+        "description": "FPT Telecom là nhà cung cấp dịch vụ internet, truyền hình và các dịch vụ gia tăng trên nền tảng internet với hơn 20 năm hình thành và phát triển",
+        "industry": {
+            "id": 10,
+            "name": "Telecommunication"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Công Ty TNHH Gameloft",
+        "description": "Leader in the development and publishing of games, Gameloft® has established itself as one of the top innovators in its field since 2000",
+        "industry": {
+            "id": 5,
+            "name": "Entertainment"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "FPT University",
+        "description": "Trực thuộc Tập đoàn FPT, được thành lập từ năm 2006 nhằm đáp ứng nhu cầu nhân lực chất lượng cao cho đất nước.",
+        "industry": {
+            "id": 4,
+            "name": "Education"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "FPT Software",
+        "description": "FPT Software is a global technology and IT services provider headquartered in Vietnam, with more than USD 513 million in revenue and 20,000 employees in 26 countries. ",
+        "industry": {
+            "id": 1,
+            "name": "Technology"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "FPT Information System",
+        "description": "Công ty Hệ thống Thông tin FPT (FPT Information System - FPT IS) là nhà tích hợp hệ thống, cung cấp giải pháp hàng đầu Việt Nam và khu vực",
+        "industry": {
+            "id": 1,
+            "name": "Technology"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Công ty TNHH Revu R&D Center",
+        "description": "Revu R&D Center trực thuộc công ty REVU, công ty hàng đầu Hàn Quốc về influencer marketing.",
+        "industry": {
+            "id": 2,
+            "name": "Marketing"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "NEC Việt Nam",
+        "description": "NEC Corp is a leader in the integration of IT and network technologies that benefit businesses and people around the world",
+        "industry": {
+            "id": 1,
+            "name": "Technology"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "HCL Vietnam Company Limited",
+        "description": "HCL Technologies is a next-generation global technology company that helps enterprises reimagine their businesses for the digital age",
+        "industry": {
+            "id": 1,
+            "name": "Technology"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Báo Điện Tử VnExpress.net",
+        "description": "Báo điện tử VnExpress.net là báo tiếng việt nhiều người xem nhất hiện nay. Với đội ngũ nhân sự trẻ và nhiệt huyết, cộng với việc không ngừng chú trọng đầu tư và nâng cao nội dung, VnExpress.net đang ngày càng khẳng định vị trí của mình.",
+        "industry": {
+            "id": 9,
+            "name": "Media And News"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Trung tâm đào tạo của B.U.S",
+        "description": "B.U.S has been established as an English center specialising in IELTS preparation for those wanting to immigrate to Canada, and as a smaller branch of NewLife Immigration. The IELTS courses at B.U.S are designed to give students complete and careful preparation for all aspects of the general module of IELTS. Aiming at providing students the highest teaching quality",
+        "industry": {
+            "id": 4,
+            "name": "Education"
+        },
+        "semesters": [
+            {
+                "id": "SU22",
+                "name": "Summer2022",
+                "startDate": "2022-04-30T17:00:00.000+00:00",
+                "endDate": "2022-07-30T17:00:00.000+00:00"
+            }
+        ]
+    }
+]
