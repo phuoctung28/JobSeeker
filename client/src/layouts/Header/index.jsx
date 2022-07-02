@@ -38,7 +38,7 @@ export const Header = () => {
               </Link>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto justify-content-center">
+                <Nav className="me-auto justify-content-center ml-5">
                   <Link to="/" className={classes.headerLinks}>
                     Home
                   </Link>

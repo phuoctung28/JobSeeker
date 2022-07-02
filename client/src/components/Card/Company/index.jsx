@@ -8,8 +8,8 @@ export const CompanyCard = ({ company }) => {
   useEffect(() => {
     if (company) {
       setCompany({
-        companyName: company.name
-      })
+        companyName: company.name,
+      });
     }
   }, [company]);
   let navigate = useNavigate();
@@ -20,10 +20,7 @@ export const CompanyCard = ({ company }) => {
   return (
     <div className={classes.card} onClick={onRedirectToDetail}>
       <div>
-        <h1>{companyInfo.companyName}</h1>
-      </div>
-      <div className={classes.information}>
-        <p>www.youtube.com</p>
+        <h1 className={classes.companyName}>{companyInfo.companyName}</h1>
       </div>
       <div className={classes.post}>3 job posted </div>
     </div>

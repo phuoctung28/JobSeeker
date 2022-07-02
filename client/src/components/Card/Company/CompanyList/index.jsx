@@ -1,8 +1,9 @@
-import React from 'react'
-import { CompanyCard } from '..'
-export const CompanyList = ({companyList}) => {
+import React from "react";
+import { CompanyCard } from "..";
+import classes from "./CompanyList.module.scss";
+export const CompanyList = ({ companyList }) => {
   return (
-    <div className='d-flex justify-content-center justify-content-evenly'>
+    <div className={classes.container}>
       {/* <CompanyCard />
       <CompanyCard />
       <CompanyCard /> */}
@@ -10,5 +11,5 @@ export const CompanyList = ({companyList}) => {
         <CompanyCard company={company} key={index} />
       ))}
     </div>
-  )
-}
+  );
+};
