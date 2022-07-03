@@ -40,9 +40,9 @@ export const Feature = ({ job }) => {
       </div>
       <div className={classes.time}>Full-time</div>
       <div className={classes.tags}>
+        {/* <Tag tag="React" />
         <Tag tag="React" />
-        <Tag tag="React" />
-        <Tag tag="React" />
+        <Tag tag="React" /> */}
       </div>
       <div className={classes.starting__time}>{jobInfo.datePublished}</div>
     </div>
