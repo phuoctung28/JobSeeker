@@ -8,10 +8,13 @@ $title-color: #bababa;
   align-items: center;
   justify-content: space-between;
   position: relative;
-
+  text-decoration: none;
   margin: 2rem 0;
   cursor: pointer;
   .information {
+    h4 {
+      color: $primary-color;
+    }
     .location {
       width: 50%;
       word-wrap: break-word;

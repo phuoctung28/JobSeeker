@@ -1,9 +1,11 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Feature } from "../../components/Card/Feature";
+import { FeatureList } from "../../components/Card/Feature/FeatureList";
 import { Input } from "../../components/Input";
 import { loadAllJob } from "../../context/ActionCreator";
 import { AuthContext } from "../../context/AuthContext";
+import { mockData } from "../../mockData";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
   const {job, setJob} = useContext(AuthContext);
@@ -48,22 +50,7 @@ export const JobPage = () => {
         </div>
         <div>
           <h4 className="my-4">Related Job Postings</h4>
-          {/* <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature />
-          <Feature /> */}
-          <div>Feature</div>
-          <div>Feature</div>
-          <div>Feature</div>
-          <div>Feature</div>
-          <div>Feature</div>
-          <div>Feature</div>
-          <div>Feature</div>
+          <FeatureList jobList={mockData} />
         </div>
       </div>
     </Fragment>

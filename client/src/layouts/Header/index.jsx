@@ -19,7 +19,7 @@ export const Header = () => {
         console.log(error);
       });
   };
-  console.log("user o header", !!user);
+  // console.log("user o header", !!user);
   return (
     <>
       {!!user ? (

@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { loadJobByCategory } from "../../../context/ActionCreator";
+import JobAPI from "../../../services/job";
 import classes from "./Category.module.scss";
-export const CategoryCard = ({category}) => {
+export const CategoryCard = ({ category }) => {
   const [categoryInfo, setCategoryInfo] = useState({
-    name: ""
+    name: "",
+    id: "",
   });
   useEffect(() => {
     if (category) {
+      console.log(category);
       setCategoryInfo({
-        name: category.name
-      })
+        name: category.name,
+        id: category.id.toString(),
+      });
     }
   }, [category]);
-  const onClickCategory = (e) => {
+  const onClickCategory = async (e) => {
     e.preventDefault();
-    console.log(e.target.innerText);
-  }
+    // console.log(loadJobByCategory(categoryInfo.id));
+    console.log(categoryInfo.id);
+    const categoryMock = await JobAPI.searchJobByCategory(categoryInfo.id);
+    console.log(categoryMock);
+  };
   return (
     <div className={classes.category} onClick={onClickCategory}>
       <img
@@ -31,7 +39,7 @@ export const CategoryCard = ({category}) => {
         src="/icons8-image-48 (1).png"
         alt="design"
       />
-      <p>{categoryInfo.name}</p>
+      <p className={classes.name}>{categoryInfo.name}</p>
     </div>
   );
 };

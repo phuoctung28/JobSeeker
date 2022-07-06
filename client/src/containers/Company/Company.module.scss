@@ -14,11 +14,11 @@ $background-color: #f2f3f6;
   }
 }
 .semester {
-  border: 1px solid #f36522;
+  border: 1px solid #f36522 !important;
   padding: 1rem;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #f36522;
+  background-color: #f36522 !important;
   &:hover {
     color: #fff;
     background-color: #f36522;

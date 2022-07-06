@@ -5,7 +5,8 @@ const JobAPI = {
   loadCompany: () => axiosInstance.get("/company/"),
   loadCategory: () => axiosInstance.get("/jobCategory"), //cors
   searchJob:  (id) => axiosInstance.get(`/job/${id}`),
-  searchJobByCategory:  (category) => axiosInstance.get("/job/:category/", category),
+  searchJobByTitle: (title) => axiosInstance.get(`job/search/${title}`), // title
+  searchJobByCategory:  (categoryId) => axiosInstance.get(`/job/category/${categoryId}`),
   applyJob:  (formData) => axiosInstance.post("job/add/", formData)
 }
 

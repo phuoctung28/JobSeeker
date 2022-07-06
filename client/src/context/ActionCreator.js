@@ -15,7 +15,7 @@ export const loadAllCompany = async () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const loadAllCategory = async () => {
   try {
@@ -23,4 +23,5 @@ export const loadAllCategory = async () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
+

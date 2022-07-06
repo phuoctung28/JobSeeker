@@ -3,6 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import { CompanyCard } from "../../components/Card/Company";
 import { CompanyList } from "../../components/Card/Company/CompanyList";
 import { Input } from "../../components/Input";
+import { SearchInput } from "../../components/Search";
 import { loadAllCompany } from "../../context/ActionCreator";
 import { mockCompany } from "../../mockData";
 import classes from "./Company.module.scss";
@@ -18,6 +19,9 @@ export const CompanyPage = () => {
         console.log(err);
       });
   }, []);
+  const onSemesterHandler = (e) => {
+    console.log(e.target.innerText);
+  };
   return (
     <Fragment>
       <div className={classes.company}>
@@ -28,14 +32,7 @@ export const CompanyPage = () => {
             </h1>
           </div>
         </div>
-        <Input
-          symbol={<i className="fa fa-search"></i>}
-          groupClasses="w-50 mx-auto my-0"
-          className="py-4 px-5 shadow-sm mx-auto my-0 w-50"
-          placeholder="Search for job title"
-        >
-          <button className="px-2 button">Search</button>
-        </Input>
+        <SearchInput className="w-50" groupClasses="w-50 mx-auto my-0" />
       </div>
       <h4 className="container my-5">Companies List</h4>
       <div className="container my-5">
@@ -43,8 +40,7 @@ export const CompanyPage = () => {
           <Dropdown.Toggle className={classes.semester} id="dropdown-basic">
             Semester
           </Dropdown.Toggle>
-
-          <Dropdown.Menu>
+          <Dropdown.Menu onClick={onSemesterHandler}>
             <Dropdown.Item href="#/action-1">Summer 2022</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Fall 2022</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Spring 2023</Dropdown.Item>
