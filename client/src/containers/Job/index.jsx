@@ -8,15 +8,18 @@ import { AuthContext } from "../../context/AuthContext";
 import { mockData } from "../../mockData";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
-  const {job, setJob} = useContext(AuthContext);
+  const { job, setJob } = useContext(AuthContext);
   useEffect(() => {
-    loadAllJob()
-      .then((result) => {
-        setJob(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const loadJob = () => {
+      try {
+        const jobData = loadAllJob();
+        setJob(jobData.data);
+      } catch (error) {
+        throw error;
+      }
+    };
+    loadJob();
+    return () => {};
   }, []);
   useEffect(() => {
     window.scrollTo({

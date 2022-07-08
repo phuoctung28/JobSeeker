@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "../../Button";
 import classes from "./JobCardDetail.module.scss";
 import { Apply } from "../../Modal/Apply";
 const Detail = ({ title, description }) => {
@@ -12,11 +11,6 @@ const Detail = ({ title, description }) => {
 };
 export const JobCardDetail = ({ data }) => {
   const { workLocation, salary, jobTitle } = data;
-  const [state, setState] = useState("close");
-  // const onToggle = (e) => {
-  //   e.preventDefault();
-  //   setState(() => (state === "open" ? "close" : "open"));
-  // };
   return (
     <>
       <div className={classes.card}>
