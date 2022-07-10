@@ -42,9 +42,6 @@ export const Header = () => {
                   <Link to="/" className={classes.headerLinks}>
                     Home
                   </Link>
-                  <Link to="/job" className={classes.headerLinks}>
-                    Jobs
-                  </Link>
                   <Link to="/company" className={classes.headerLinks}>
                     Company
                   </Link>

@@ -4,7 +4,7 @@ import JobAPI from "../../../services/job";
 import classes from "./Feature.module.scss";
 export const Feature = ({ job }) => {
   return (
-    <Link to={`job/${job.id}`} className={classes.card}>
+    <Link to={`/job/${job.id}`} className={classes.card}>
       <div className={classes.information}>
         <h4>{job.jobTitle}</h4>
         <p className={classes.location}>{job.workLocation}</p>

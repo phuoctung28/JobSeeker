@@ -12,6 +12,8 @@
   -moz-transition: background-color 2ms linear;
   -o-transition: background-color 2ms linear;
   transition: background-color 2ms linear;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   .name {
     font-size: 1rem;

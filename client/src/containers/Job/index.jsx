@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Feature } from "../../components/Card/Feature";
 import { FeatureList } from "../../components/Card/Feature/FeatureList";
@@ -9,6 +9,8 @@ import { mockData } from "../../mockData";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
   const { job, setJob } = useContext(AuthContext);
+  const [companyId, setCompanyId] = useState("");
+  const [categoryId, setCategoryId] = useState("");
   useEffect(() => {
     const loadJob = () => {
       try {

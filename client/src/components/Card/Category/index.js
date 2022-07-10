@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { loadJobByCategory } from "../../../context/ActionCreator";
 import JobAPI from "../../../services/job";
 import classes from "./Category.module.scss";
@@ -16,15 +17,9 @@ export const CategoryCard = ({ category }) => {
       });
     }
   }, [category]);
-  const onClickCategory = async (e) => {
-    e.preventDefault();
-    // console.log(loadJobByCategory(categoryInfo.id));
-    console.log(categoryInfo.id);
-    const categoryMock = await JobAPI.searchJobByCategory(categoryInfo.id);
-    console.log(categoryMock);
-  };
+
   return (
-    <div className={classes.category} onClick={onClickCategory}>
+    <Link to={`/job/category/${categoryInfo.id}`} className={classes.category}>
       <img
         className={classes.first}
         width={48}
@@ -40,6 +35,6 @@ export const CategoryCard = ({ category }) => {
         alt="design"
       />
       <p className={classes.name}>{categoryInfo.name}</p>
-    </div>
+    </Link>
   );
 };
