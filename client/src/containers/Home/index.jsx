@@ -11,9 +11,10 @@ import { SearchInput } from "../../components/Search";
 import { mockData } from "../../mockData";
 export const Homepage = () => {
   const navigate = useNavigate();
-  const { job, setJob } = useContext(AuthContext);
+  const { job, setJob, setJobList } = useContext(AuthContext);
   async function handleSubmit(event) {
     event.preventDefault();
+    setJobList(null);
     navigate("/job", { replace: true });
   }
   // useEffect(() => {
@@ -45,7 +46,6 @@ export const Homepage = () => {
               </h1>
               <div className="mt-5">
                 <SearchInput />
-  
               </div>
             </div>
             <img src="/bg.svg" width={576.03} height={357.19} alt="" />

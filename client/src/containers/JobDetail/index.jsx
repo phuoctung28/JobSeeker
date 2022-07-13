@@ -5,6 +5,7 @@ import classes from "./JobDetail.module.scss";
 import { useParams } from "react-router-dom";
 import JobAPI from "../../services/job";
 import { JobInformation } from "../../components/JobInformation";
+import { SearchInput } from "../../components/Search";
 export const JobDetail = () => {
   const [currentJob, setCurrentJob] = useState({});
   const { jobId } = useParams();
@@ -12,8 +13,8 @@ export const JobDetail = () => {
     // console.log("Mounting");
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
-    })
+      behavior: "smooth",
+    });
     const fetchJobDetail = async () => {
       try {
         // console.log(" did update", jobId);
@@ -40,14 +41,9 @@ export const JobDetail = () => {
             </h1>
           </div>
         </div>
-        <Input
-          symbol={<i class="fa fa-search"></i>}
-          groupClasses="w-50 mx-auto my-0"
-          className="py-4 px-5 shadow-sm mx-auto my-0 w-50"
-          placeholder="Search for job title"
-        >
-          <button className="px-2 button">Search</button>
-        </Input>
+        <div className="w-50 mx-auto">
+          <SearchInput />
+        </div>
       </div>
       <div className="container my-5">
         <h4>Job Details</h4>

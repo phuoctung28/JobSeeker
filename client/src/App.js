@@ -24,7 +24,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoutes />}>
               <Route index element={<Homepage />} />
-              <Route path="job">
+              <Route exact path="job">
                 <Route index element={<JobPage />} />
                 <Route path="category/:categoryId" element={<JobPage />} />
                 <Route path="company/:companyId" element={<JobPage />} />

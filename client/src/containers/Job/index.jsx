@@ -1,16 +1,19 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { CategoryList } from "../../components/Card/Category/CategoryList";
 import { Feature } from "../../components/Card/Feature";
 import { FeatureList } from "../../components/Card/Feature/FeatureList";
 import { Input } from "../../components/Input";
+import { SearchInput } from "../../components/Search";
 import { loadAllJob } from "../../context/ActionCreator";
 import { AuthContext } from "../../context/AuthContext";
 import { mockData } from "../../mockData";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
-  const { job, setJob } = useContext(AuthContext);
-  const [companyId, setCompanyId] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const { job, setJob, jobList } = useContext(AuthContext);
+  console.log(jobList);
+  const { state } = useLocation();
+  console.log(state);
   useEffect(() => {
     const loadJob = () => {
       try {
@@ -39,14 +42,9 @@ export const JobPage = () => {
             </h1>
           </div>
         </div>
-        <Input
-          symbol={<i class="fa fa-search"></i>}
-          groupClasses="w-50 mx-auto my-0"
-          className="py-4 px-5 shadow-sm mx-auto my-0 w-50"
-          placeholder="Search for job title"
-        >
-          <button className="px-2 button">Search</button>
-        </Input>
+        <div className="w-50 mx-auto">
+          <SearchInput />
+        </div>
       </div>
       <div className="container my-5">
         <div>
@@ -55,7 +53,7 @@ export const JobPage = () => {
         </div>
         <div>
           <h4 className="my-4">Related Job Postings</h4>
-          <FeatureList jobList={mockData} />
+          <FeatureList jobList={jobList === null ? mockData : jobList} />
         </div>
       </div>
     </Fragment>

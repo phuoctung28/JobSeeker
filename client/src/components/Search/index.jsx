@@ -1,12 +1,14 @@
 import classes from "./Search.module.scss";
 
-import React, { useState } from "react";
+import { useState, useContext } from "react";
 import { Input } from "../Input";
 import { useNavigate } from "react-router-dom";
 import JobAPI from "../../services/job";
+import { AuthContext } from "../../context/AuthContext";
 
-export const SearchInput = ({ jobData, className, groupClasses }) => {
-  let navigate = useNavigate();
+export const SearchInput = ({ jobData, className, groupClasses, formClass }) => {
+  const navigate = useNavigate();
+  const { jobList, setJobList } = useContext(AuthContext);
   let classes = "py-4 px-5 shadow-sm " + className;
   const [formData, setFormData] = useState("");
   const onChangeHandler = (data) => {
@@ -18,6 +20,8 @@ export const SearchInput = ({ jobData, className, groupClasses }) => {
     const data = await JobAPI.searchJobByTitle(formData);
     console.log(data);
     setFormData("");
+    setJobList(data.data);
+    navigate("/job");
   };
   return (
     <form onSubmit={onSearchHandler}>

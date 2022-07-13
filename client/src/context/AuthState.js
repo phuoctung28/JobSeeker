@@ -7,6 +7,7 @@ export const AuthState = ({ children }) => {
   const [user, setUser] = useState(null);
   const [validation, setValidation] = useState(true);
   const [job, setJob] = useState([]);
+  const [jobList, setJobList] = useState([]);
   useEffect(() => {
     onAuthStateChanged(auth, (userData) => {
       if (userData) {
@@ -20,7 +21,17 @@ export const AuthState = ({ children }) => {
   }, [user, validation]);
 
   return (
-    <AuthContext.Provider value={{ user, validation, setValidation, job, setJob }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        validation,
+        setValidation,
+        job,
+        setJob,
+        jobList,
+        setJobList,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
