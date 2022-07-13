@@ -6,6 +6,8 @@ import { Modal } from "react-bootstrap";
 import Button from "../../Button/index.jsx";
 export const Apply = () => {
   const [show, setShow] = useState(false);
+  const [text, setText] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -13,11 +15,19 @@ export const Apply = () => {
     e.preventDefault();
     const file = e.target[0].files[0];
     upLoadFiles(file);
-    console.log(file.type);
+    if (upLoadFiles(file)) {
+      setText("Submit successfully");
+      setIsSuccess(true);
+    } else if (upLoadFiles(file) == false) {
+      setText("Error");
+      setIsSuccess(false);
+    } else {
+      setText("");
+    }
   };
   const upLoadFiles = (file) => {
-    if (!file) return;
-    if (file.type !== "application/pdf") console.log("Error");
+    if (!file) return false;
+    if (file.type !== "application/pdf") return false;
     else {
       const storageRef = ref(storage, `/files/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
@@ -38,6 +48,7 @@ export const Apply = () => {
           );
         }
       );
+      return true;
     }
   };
   // console.log("state tai apply component: ", state);
@@ -57,18 +68,19 @@ export const Apply = () => {
               type="file"
               className="input"
               accept="application/pdf"
-              // onChange={fileValidation}
             ></input>
-            <Button type="submit" className="rounded-2">Upload</Button>
+            <Button type="submit" className="rounded-2">
+              Upload
+            </Button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className={classes.footer}>
+          <p style={{ color: isSuccess ? "green" : "red" }}>{text}</p>
           <Button className="rounded-2" onClick={handleClose}>
             Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
-
     </>
   );
 };
