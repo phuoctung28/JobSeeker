@@ -19,7 +19,7 @@ export const Apply = () => {
       setText("Submit successfully");
       setIsSuccess(true);
     } else if (upLoadFiles(file) == false) {
-      setText("Error");
+      setText("ERROR");
       setIsSuccess(false);
     } else {
       setText("");

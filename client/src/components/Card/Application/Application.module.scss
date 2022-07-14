@@ -1,15 +1,24 @@
 $primary-color: #f36522;
 $title-color: #bababa;
+$pending-color: #f0ad4e;
+$passed-color: #5cb85c;
+$rejected-color: #d9534f;
+
 .container {
   width: 50%;
   margin: 10px auto;
   border: 1px solid $title-color;
+  padding: 2rem;
   border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
 
   .card {
     margin: 10px;
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+
     .image {
       object-fit: contain;
       margin: auto 2rem;
@@ -20,8 +29,32 @@ $title-color: #bababa;
     }
     .button {
       height: 50%;
-      margin: auto 2rem;
+      // margin: auto 2rem;
       border-radius: 4px;
+    }
+    .ApplicationDetail {
+      .CompanyLink {
+        text-decoration: none;
+        color: #9c9a9a;
+      }
+    }
+
+    .statusSection {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      position: absolute;
+      right: 0.5rem;
+      .status {
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: $pending-color;
+        color: white;
+        font-size: 1rem;
+      }
     }
   }
 }

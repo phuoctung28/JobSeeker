@@ -10,11 +10,22 @@ export const ApplicationCard = () => {
           src="/logo-fpt-login.png"
           sizes="60px"
           alt="companyLogo"
-          height={128}
-          width={128}
+          height={60}
+          width={60}
         />
-        <h3>Company Name</h3>
-        <Button className={classes.button}>View Job</Button>
+        <div className={classes.ApplicationDetail}>
+          <h5 className={classes.JobTitle}>Thực tập sinh Kỹ Sư Dữ Liệu</h5>
+          <a href="/" className={classes.CompanyLink}>
+            KMS Technology
+          </a>
+          <div className={classes.SubmittedDate}>
+            Submitted on February 15 2022, 6:02 pm
+          </div>
+        </div>
+        <div className={classes.statusSection}>
+          <div className={classes.status}>Pending</div>
+          <Button className={classes.button}>View Job</Button>
+        </div>
       </div>
     </div>
   );
