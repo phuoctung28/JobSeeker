@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { loadJobByCategory } from "../../../context/ActionCreator";
+import { AuthContext } from "../../../context/AuthContext";
 import JobAPI from "../../../services/job";
 import classes from "./Category.module.scss";
 export const CategoryCard = ({ category }) => {
+  let navigate = useNavigate();
+  const { setJobList } = useContext(AuthContext);
   const [categoryInfo, setCategoryInfo] = useState({
     name: "",
     id: "",
@@ -17,9 +20,23 @@ export const CategoryCard = ({ category }) => {
       });
     }
   }, [category]);
-
+  const onRedirectToJobPage = (e) => {
+    e.preventDefault();
+    const loadJob = async () => {
+      try {
+        const jobData = await JobAPI.searchJobByCategory(
+          categoryInfo.id.toString()
+        );
+        setJobList(jobData.data);
+      } catch (error) {
+        throw error;
+      }
+    };
+    loadJob();
+    navigate(`/job/category/${categoryInfo.id}`);
+  };
   return (
-    <Link to={`/job/category/${categoryInfo.id}`} className={classes.category}>
+    <div onClick={onRedirectToJobPage} className={classes.category}>
       <img
         className={classes.first}
         width={48}
@@ -35,6 +52,6 @@ export const CategoryCard = ({ category }) => {
         alt="design"
       />
       <p className={classes.name}>{categoryInfo.name}</p>
-    </Link>
+    </div>
   );
 };

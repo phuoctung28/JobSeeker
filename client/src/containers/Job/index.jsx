@@ -13,11 +13,12 @@ export const JobPage = () => {
   const { job, setJob, jobList } = useContext(AuthContext);
   console.log(jobList);
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
   useEffect(() => {
-    const loadJob = () => {
+    console.log(jobList);
+    const loadJob = async () => {
       try {
-        const jobData = loadAllJob();
+        const jobData = await loadAllJob();
         setJob(jobData.data);
       } catch (error) {
         throw error;
@@ -53,7 +54,20 @@ export const JobPage = () => {
         </div>
         <div>
           <h4 className="my-4">Related Job Postings</h4>
-          <FeatureList jobList={jobList === null ? mockData : jobList} />
+          {jobList.length === 0 ? (
+            <>
+              <h3 className="text-danger">Xin lỗi! </h3>
+              <p>Không có việc làm phù hợp.</p>
+            </>
+          ) : (
+            <>
+              <div className={classes.description}>
+                <span>{jobList === null ? job.length : jobList.length}</span>{" "}
+                việc làm
+              </div>
+              <FeatureList jobList={jobList === null ? job : jobList} />
+            </>
+          )}
         </div>
       </div>
     </Fragment>

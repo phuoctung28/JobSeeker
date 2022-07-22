@@ -10,23 +10,7 @@ import { FeatureList } from "../../components/Card/Feature/FeatureList";
 import { SearchInput } from "../../components/Search";
 import { mockData } from "../../mockData";
 export const Homepage = () => {
-  const navigate = useNavigate();
   const { job, setJob, setJobList } = useContext(AuthContext);
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setJobList(null);
-    navigate("/job", { replace: true });
-  }
-  // useEffect(() => {
-  //   loadAllJob()
-  //     .then((result) => {
-  //       setJob(result.data);
-  //       console.log(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   useEffect(() => {
     window.scrollTo({
@@ -59,12 +43,12 @@ export const Homepage = () => {
         </div>
         <div>
           <h4 className="my-4">Featured Jobs</h4>
-          <FeatureList jobList={mockData} />
+          <div className={classes.description}>
+            <span>{job.length}</span> việc làm
+          </div>
+          <FeatureList jobList={job} />
         </div>
       </div>
-      <Button className={classes.btnJob} onClick={handleSubmit}>
-        More jobs
-      </Button>
     </Fragment>
   );
 };

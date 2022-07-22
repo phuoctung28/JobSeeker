@@ -11,7 +11,7 @@ export const Feature = ({ job }) => {
         <h4>{jobTitle}</h4>
         <p className={classes.location}>{workLocation}</p>
       </div>
-      <div className={classes.time}>Full-time</div>
+      <div className={classes.time}>Internship</div>
       <div className={classes.tags}></div>
       <div className={classes.starting__time}>
         <div>Date published:</div>

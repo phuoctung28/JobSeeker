@@ -96,7 +96,7 @@ export const Login = () => {
                   alt="google"
                 />{" "}
                 <p className="mx-auto my-auto text-black font-weight-bold">
-                  Login with Google
+                  Login with @fpt.edu.vn
                 </p>
               </Button>
             </form>

@@ -13,3 +13,13 @@ $background-color: #F2F3F6;
   }
   }
 }
+.description {
+  font: bolder;
+  font-size: 24px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  padding: 1rem;
+  span {
+    color: #f36522;
+  }
+}

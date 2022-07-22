@@ -36,17 +36,7 @@ export const CompanyPage = () => {
       </div>
       <h4 className="container my-5">Companies List</h4>
       <div className="container my-5">
-        <Dropdown>
-          <Dropdown.Toggle className={classes.semester} id="dropdown-basic">
-            Semester
-          </Dropdown.Toggle>
-          <Dropdown.Menu onClick={onSemesterHandler}>
-            <Dropdown.Item href="#/action-1">Summer 2022</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Fall 2022</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Spring 2023</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <CompanyList companyList={mockCompany} />
+        <CompanyList companyList={company} />
       </div>
     </Fragment>
   );

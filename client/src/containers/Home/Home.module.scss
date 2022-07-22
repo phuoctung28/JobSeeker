@@ -28,3 +28,13 @@
   margin: 2rem auto;
   display: flex;
 }
+.description {
+  font: bolder;
+  font-size: 24px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  padding: 1rem;
+  span {
+    color: #f36522;
+  }
+}

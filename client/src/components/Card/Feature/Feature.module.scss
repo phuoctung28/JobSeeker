@@ -11,12 +11,13 @@ $title-color: #bababa;
   text-decoration: none;
   margin: 2rem 0;
   cursor: pointer;
+  height: 230px;
   .information {
     h4 {
       color: $primary-color;
     }
     .location {
-      width: 50%;
+      width: 60%;
       word-wrap: break-word;
       color: $title-color;
       font-size: 1rem;
@@ -40,6 +41,9 @@ $title-color: #bababa;
   .starting__time {
     color: $title-color;
     font-size: larger;
+    p {
+      color: $primary-color;
+    }
   }
 }
 .tag {
