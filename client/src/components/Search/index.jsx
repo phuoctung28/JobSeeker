@@ -16,9 +16,9 @@ export const SearchInput = ({ jobData, className, groupClasses, formClass }) => 
   };
   const onSearchHandler = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     const data = await JobAPI.searchJobByTitle(formData);
-    console.log(data);
+    // console.log(data);
     setFormData("");
     setJobList(data.data);
     navigate("/job");

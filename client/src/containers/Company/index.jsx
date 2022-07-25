@@ -13,7 +13,7 @@ export const CompanyPage = () => {
     loadAllCompany()
       .then((result) => {
         setCompany(result.data);
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch((err) => {
         console.log(err);

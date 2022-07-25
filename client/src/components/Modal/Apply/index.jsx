@@ -1,16 +1,24 @@
 import { storage } from "../../../firebase.js";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classes from "./Apply.module.css";
+import { AuthContext } from "../../../context/AuthContext.js";
 import { Modal } from "react-bootstrap";
 import Button from "../../Button/index.jsx";
 export const Apply = () => {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const { cvFile, setcvFile } = useContext(AuthContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    
+    console.log(cvFile);
+  }, [cvFile]);
+  
   const formHandler = (e) => {
     e.preventDefault();
     const file = e.target[0].files[0];
@@ -43,9 +51,7 @@ export const Apply = () => {
           console.log(err);
         },
         () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((url) =>
-            console.log(url)
-          );
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => setcvFile(url));
         }
       );
       return true;

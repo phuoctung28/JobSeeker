@@ -30,7 +30,7 @@ export const JobDetail = () => {
 
     return () => {};
   }, []);
-  console.log(currentJob);
+  // console.log(currentJob);
   return (
     <Fragment>
       <div className={classes.job}>

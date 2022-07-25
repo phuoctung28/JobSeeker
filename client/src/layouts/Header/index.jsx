@@ -6,14 +6,14 @@ import { AuthContext } from "../../context/AuthContext";
 import { auth } from "../../firebase";
 import classes from "./Header.module.scss";
 export const Header = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const { user, setValidation } = useContext(AuthContext);
   const onLogout = (e) => {
     e.preventDefault();
     signOut(auth)
       .then(() => {
         setValidation(true);
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         console.log(error);

@@ -13,7 +13,7 @@ export const CategoryCard = ({ category }) => {
   });
   useEffect(() => {
     if (category) {
-      console.log(category);
+      // console.log(category);
       setCategoryInfo({
         name: category.name,
         id: category.id.toString(),

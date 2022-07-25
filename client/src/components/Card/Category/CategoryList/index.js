@@ -7,7 +7,7 @@ export const CategoryList = () => {
   useEffect(() => {
     loadAllCategory().then((result) => {
       setCategory(result.data)
-      console.log(result.data);
+      // console.log(result.data);
     }).catch((err) => {
       console.log(err);
     });

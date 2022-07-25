@@ -11,11 +11,11 @@ import { mockData } from "../../mockData";
 import classes from "./Job.module.scss";
 export const JobPage = () => {
   const { job, setJob, jobList } = useContext(AuthContext);
-  console.log(jobList);
+  // console.log(jobList);
   const { state } = useLocation();
   // console.log(state);
   useEffect(() => {
-    console.log(jobList);
+    // console.log(jobList);
     const loadJob = async () => {
       try {
         const jobData = await loadAllJob();

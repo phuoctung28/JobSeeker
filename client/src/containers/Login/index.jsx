@@ -34,11 +34,13 @@ export const Login = () => {
             });
           throw new Error("Failllll");
         }
+
       })
       .then(() => {
+    
         let from = location.state?.from?.pathname || "/";
         navigate(from);
-        console.log(from);
+        // console.log(from);
       })
       .catch((err) => {
         // Handle Errors here.

@@ -11,7 +11,7 @@ import { SearchInput } from "../../components/Search";
 import { mockData } from "../../mockData";
 export const Homepage = () => {
   const { job, setJob, setJobList } = useContext(AuthContext);
-
+  
   useEffect(() => {
     window.scrollTo({
       top: 0,

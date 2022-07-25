@@ -8,10 +8,12 @@ export const AuthState = ({ children }) => {
   const [validation, setValidation] = useState(true);
   const [job, setJob] = useState([]);
   const [jobList, setJobList] = useState([]);
+  const [cvFile, setcvFile] = useState(null);
+  // const [login, setLogin] = useState([]);
   useEffect(() => {
     onAuthStateChanged(auth, (userData) => {
       if (userData) {
-        console.log("Loi o day auth state");
+        // console.log("Loi o day auth state");
         setUser(userData);
         setValidation(true);
       } else {
@@ -23,6 +25,8 @@ export const AuthState = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
+        cvFile,
+        setcvFile,
         user,
         validation,
         setValidation,
