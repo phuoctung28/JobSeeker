@@ -5,24 +5,35 @@ import classes from "./Apply.module.css";
 import { AuthContext } from "../../../context/AuthContext.js";
 import { Modal } from "react-bootstrap";
 import Button from "../../Button/index.jsx";
-export const Apply = () => {
+import JobAPI from "../../../services/job.js";
+export const Apply = ({ data }) => {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const { cvFile, setcvFile } = useContext(AuthContext);
+  const { user, application, applicant } = useContext(AuthContext);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    if (application) {
+      if (
+        window.confirm(
+          "Do you want to change your application? If change your current application will disappear."
+        )
+      ) {
+        setShow(true);
+      } else {
+        return;
+      }
+    } else {
+      setShow(true);
+    }
+  };
 
-  useEffect(() => {
-    
-    console.log(cvFile);
-  }, [cvFile]);
-  
   const formHandler = (e) => {
     e.preventDefault();
     const file = e.target[0].files[0];
     upLoadFiles(file);
+    console.log(data);
     if (upLoadFiles(file)) {
       setText("Submit successfully");
       setIsSuccess(true);
@@ -50,8 +61,21 @@ export const Apply = () => {
         (err) => {
           console.log(err);
         },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((url) => setcvFile(url));
+        async () => {
+          if (application) {
+            await JobAPI.updateApplication(application.id, {
+              ...application,
+              job: data,
+            });
+          } else {
+            await JobAPI.addApplication(applicant?.id, data);
+          }
+          getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
+            await JobAPI.uploadCV(user.email, url);
+          });
+          // .then(async (cv) => {
+          //
+          // });
         }
       );
       return true;

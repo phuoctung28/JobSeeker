@@ -31,6 +31,16 @@ $rejected-color: #d9534f;
       height: 50%;
       // margin: auto 2rem;
       border-radius: 4px;
+      text-decoration: none;
+      border: 1px solid $primary-color;
+      color: black;
+      padding: 0.5rem;
+      transition-delay: 1ms;
+      &:hover{
+        transition-delay: 1ms;
+        background-color: #f36522;
+        color: white;
+      }
     }
     .ApplicationDetail {
       .CompanyLink {

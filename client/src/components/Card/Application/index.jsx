@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../../Button";
+import moment from "moment";
 import classes from "./Application.module.scss";
-export const ApplicationCard = () => {
+export const ApplicationCard = ({ application }) => {
   return (
     <div className={classes.container}>
       <div className={classes.card}>
@@ -14,17 +16,17 @@ export const ApplicationCard = () => {
           width={60}
         />
         <div className={classes.ApplicationDetail}>
-          <h5 className={classes.JobTitle}>Thực tập sinh Kỹ Sư Dữ Liệu</h5>
+          <h5 className={classes.JobTitle}>{application?.job?.jobTitle}</h5>
           <a href="/" className={classes.CompanyLink}>
-            KMS Technology
+            {application?.job?.company?.name}
           </a>
           <div className={classes.SubmittedDate}>
-            Submitted on February 15 2022, 6:02 pm
+            Published on  {moment(application?.job?.datePublished).format('YYYY-MM-DD')}
           </div>
         </div>
         <div className={classes.statusSection}>
           <div className={classes.status}>Pending</div>
-          <Button className={classes.button}>View Job</Button>
+          <Link to={`/job/${application?.job?.id}`} className={classes.button}>View Job</Link>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ function App() {
                 <Route path=":jobId" element={<JobDetail />} />
               </Route>
               <Route path="company" element={<CompanyPage />} />
-              <Route path="application" element={<Application />} />
+              <Route exact path="application" element={<Application />} />
             </Route>
           </Routes>
           <Footer />

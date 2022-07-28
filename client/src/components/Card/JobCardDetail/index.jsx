@@ -28,7 +28,7 @@ export const JobCardDetail = ({ data }) => {
         {/* <Button className="rounded-2 my-5" onClick={onToggle}>
           Apply Jobs
         </Button> */}
-        <Apply />
+        <Apply data={data}/>
       </div>
     </>
   );

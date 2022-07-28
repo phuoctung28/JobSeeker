@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  background-color: #f2f3f6;
+  background-color: #F2F3F6;
   margin: 0 auto;
   padding: 4rem 0;
   display: flex;
@@ -15,4 +15,23 @@
 h2 {
   margin: 0 auto;
   text-align: center;
+}
+
+.link {
+  border: 1px solid #f36522;
+  padding: 1rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 1rem;
+  width: 30%;
+  margin: auto;
+  border-radius: 4px;
+  font-weight: 400;
+  margin-top: 1rem;
+&:hover {
+  background-color: #f36522;
+  color: white;
+}
 }
